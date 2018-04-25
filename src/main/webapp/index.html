@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <meta name="keywords"
+          content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+    <meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+    <meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+    <meta name="applicable-device" content="pc">
+    <meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+    <title>kownyou-打造最懂你的社交平台！</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script type="text/javascript">
+        var _speedMark = new Date();
+    </script>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/modules/list.css"/>
+    <link rel="stylesheet" href="/css/animate.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <!--<script type="text/javascript">SPD.mark(31); // CSS加载完毕</script>-->
+</head>
+
+<body>
+<!-- 头部 S -->
+
+<script>
+    if (window.ActiveXObject || window.msIsStaticHTML) {
+        var ie = 6;
+
+        if (!!window.XMLHttpRequest) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("MSIE 7.0") != -1) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/4.0") != -1) {
+            ie = 8
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/5.0") != -1) {
+            ie = 9
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/6.0") != -1) {
+            ie = 10
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/7.0") != -1 || "undefined" == typeof attachEvent) {
+            ie = 11
+        }
+        ;
+        if (ie < 8) {
+            document.write("<div class=\"popup_top\"  id=\"zoom_warn\">使用更高版本的 <a href=\"http://www.google.cn/intl/zh-CN/chrome/browser/desktop/\" target=\"_blank\">Chrome</a> 或 <a href=\"https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads\" target=\"_blank\">Internet Explorer</a>，体验更精彩</div>");
+        }
+    }</script>
+<div class="mod_header">
+    <div class="section_inner">
+        <h1 class="qqmusic_title"><a href="//www.kownyou.com"><img srcset="img/logo/logo.png?nowebp=1 2x"
+                                                                   src="img/logo/logo.png?nowebp=1" alt="懂你网"
+                                                                   class="kownyou_logo"/></a><i>懂你网</i></h1>
+        <!-- 导航 S -->
+        <ul class="mod_top_nav" role="nav">
+            <li class="top_nav__item">
+                <a href="//www.kownyou.com" class="top_nav__link top_nav__link--current" title="首页">首页</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="猜你喜欢">猜你喜欢</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="APP" rel="noopener" target="_blank">APP</a>
+            </li>
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vip/daren_recruit/apply.html" data-stat="y_new.top.darenrecruit" class="top_nav__link js_nav_click" title="VIP" rel="noopener" target="_blank">音乐号</a>-->
+            <!--</li>-->
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vipportal/" class="top_nav__link" title="VIP" rel="noopener" target="_blank">VIP</a>-->
+            <!--</li>-->
+        </ul>
+        <ul class="mod_top_subnav">
+            <li class="top_subnav__item">
+                <a href="//www.kownyou.com" class="top_subnav__link">时评</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#l" class="top_subnav__link">文化</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">美食</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">故事</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">IT技术</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">电台</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">热评</a>
+            </li>
+            <li class="top_subnav__item">
+                <a href="#" class="top_subnav__link">电影</a>
+            </li>
+        </ul>
+        <!-- 导航 E -->
+        <div class="mod_top_search" role="search">
+            <div class="mod_search_input">
+                <input class="search_input__input" aria-label="请输入搜索内容" type="text" placeholder="" accesskey="s"/>
+                <button class="search_input__btn"><i class="icon_search"></i><span class="icon_txt">搜索</span></button>
+            </div>
+        </div>
+        <div class="header__opt">
+
+
+            <!-- 未登录 -->
+            @DIRECTIVE SAFE_OUTPUT_OPEN;
+            <span class="mod_top_login">
+		    <a class="top_login__link js_logined" href="/profile.html" ${session.user==null ?'style="display:none;"':''}>
+                        <img ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                             class="top_login__cover" alt=""/>
+                </a>
+                <a class="top_login__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">
+                        登录
+                </a>
+
+                <a class="login__link header__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">登录</a>
+                </span>
+            <!-- 用户信息 -->
+            <div class="popup_user">
+                <div class="popup_user_data"><a href="/profile.html"
+                                                class="popup_user_data__cover_link"
+                                                onclick="setStatCookie&amp;&amp;setStatCookie();"><img
+                        ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                        class="popup_user_data__cover js_user_img"><img
+                        src="//y.gtimg.cn/mediastyle/yqq/img/login_qq.png?max_age=2592000"
+                        class="popup_user_data__icon"></a>
+                    <div class="popup_user_data__name"><a
+                            href="#"
+                            onclick="setStatCookie&amp;&amp;setStatCookie();" class="">${session.user.userName!'#'}</a>
+                    </div>
+                    <div class="popup_user_data__lv"><a href="#"
+                                                        class="js_vip_jump" data-stat="y_new.top.pop.vip_icon"
+                                                        rel="noopener" target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/svip_g.png" alt="绿钻"
+                            class="popup_user_data__lv_icon"></a><a href="#"
+                                                                    class="js_vip_jump"
+                                                                    data-stat="y_new.top.pop.vip_icon" rel="noopener"
+                                                                    target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/sui_g.png?max_age=2592000" alt="付费音乐包"
+                            class="popup_user_data__lv_icon"></a></div>
+                    <a href="/logout" class="popup_user_data__out js_logout" data-stat="y_new.top.pop.logout">[退出登录]</a>
+                </div>
+                <ul class="mod_user_statistic">
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.gedan" data-tab="create"><strong
+                            class="user_statistic__number js_create">6</strong><span
+                            class="user_statistic__tit">收藏</span></a></li>
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.focus" data-tab="focus"><strong
+                            class="user_statistic__number js_focus">0</strong><span
+                            class="user_statistic__tit">关注</span></a></li>
+                    <li class="user_statistic__item user_statistic__item--last"><a href="javascript:;"
+                                                                                   class="js_profile_tab"
+                                                                                   data-stat="y_new.top.pop.fans"
+                                                                                   data-tab="fans"><strong
+                            class="user_statistic__number js_fans">0</strong><span class="user_statistic__tit">粉丝</span></a>
+                    </li>
+                </ul>
+                <div class="popup_user__toolbar"><a class="mod_btn_green popup_user__btn1 js_openvip"
+                                                    href="/release/article" target="_blank">发表文章</a>
+                </div>
+        </div>
+            @DIRECTIVE SAFE_OUTPUT_CLOSE;
+    </div>
+</div>
+<!-- 头部 E -->
+
+
+<!-- 新碟首发 -->
+<div class="mod_index mod_index--new mod_slide_box" id="albumlist_box">
+    <div class="section_inner">
+        <div class="index__hd">
+            <h2 class="index__tit"><i class="index__tit_sprite">热 门 推 荐</i><i class="icon_txt">新碟首发</i></h2>
+            <i class="index__line index__line--left"></i>
+            <i class="index__line index__line--right"></i>
+        </div>
+        <a href="#" class="index__more index__more--white js_album_more">全部<i class="icon_index_arrow"></i></a>
+        <!-- 切换 -->
+        <div class="mod_index_tab">
+            <a href="#" class="index_tab__item js_tab index_tab__item--current" data-type="nd"
+               data-stat="y_new.index.album.nd">推荐</a>
+            <a href="#" class="index_tab__item js_tab" data-type="gt" data-stat="y_new.index.album.gt">搞笑</a>
+            <a href="#" class="index_tab__item js_tab" data-type="eu" data-stat="y_new.index.album.eu">萌物</a>
+            <a href="#" class="index_tab__item js_tab" data-type="k" data-stat="y_new.index.album.k">游戏</a>
+            <a href="#" class="index_tab__item js_tab" data-type="j" data-stat="y_new.index.album.j">二次元</a>
+        </div>
+        <div class="mod_playlist mod_slide">
+            <!-- 偶数加 playlist__item--even -->
+            <ul class="playlist__list slide__list" id="albumlist">
+                @for(article in articleHotData.data){
+                <li class="playlist__item slide__item "
+                    onmouseover="this.className=(this.className+' playlist__item--hover')"
+                    onmouseout="this.className=this.className.replace(/ playlist__item--hover/, '')"
+                    data-albummid="003XynEM15EgMu" data-albumid="2244560">
+                    <div class="playlist__item_box">
+                        <div class="playlist__cover mod_cover"><a href="article/${article.id}" class="js_album"
+                                                                  data-albummid="003XynEM15EgMu" data-albumid="2244560"><img
+                                src="${article.pic}" alt="我的球场"
+                                onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
+                                class="playlist__pic"><i class="mod_cover__mask"></i><i
+                                class="mod_cover__icon_play js_play"></i></a></div>
+                        <h4 class="playlist__title">
+                            <span class="playlist__title_txt"><a href="article/${article.id}" class="js_album"
+                                                                 data-albummid="003XynEM15EgMu" data-albumid="2244560">${article.title}</a></span>
+                            <a href="javascript:;" class="btn_operate_menu js_albumlist_more" data-type="2"
+                               data-mid="003XynEM15EgMu"><span class="icon_txt">更多</span></a>
+                        </h4>
+
+                        <div class="playlist__author">
+                            <a href="#" class="js_singer" data-singermid="4423"
+                               title="${article.type}">${article.type}</a>
+                        </div>
+                    </div>
+                </li>
+                @}
+
+
+            </ul>
+        </div>
+        <div class="mod_slide_switch js_switch" data-stat="y_new.index.playlist.pager"><a href="javascript:;"
+                                                                                          tabindex="-1"
+                                                                                          class="js_jump slide_switch__item slide_switch__item--current"
+                                                                                          data-stat="y_new.index.playlist.pager"
+                                                                                          data-p="0"><i
+                class="slide_switch__bg"></i><i class="icon_txt">1</i></a><a href="javascript:;" tabindex="-1"
+                                                                             class="js_jump slide_switch__item"
+                                                                             data-stat="y_new.index.playlist.pager"
+                                                                             data-p="1"><i class="slide_switch__bg"></i><i
+                class="icon_txt">2</i></a></div>
+    </div>
+    <div class="mod_slide_action">
+        <div class="slide_action slide_action--left">
+            <a href="javascript:;" class="slide_action__btn slide_action__btn--left js_jump" data-p="prev"
+               data-stat="y_new.index.album.pager" tabindex="-1"><i class="icon_txt">上一页</i></a>
+        </div>
+        <div class="slide_action slide_action--right">
+            <a href="javascript:;" class="slide_action__btn slide_action__btn--right js_jump" data-p="next"
+               data-stat="y_new.index.album.pager" tabindex="-1"><i class="icon_txt">下一页</i></a>
+        </div>
+    </div>
+</div>
+<!-- 精彩推荐 -->
+<div class="mod_index mod_index--event mod_slide_box" id="focus">
+
+</div>
+<!-- 排行榜 -->
+<div id="toplist_box"></div>
+<!-- 热门歌单 -->
+<div id="taogelist_box"></div>
+<!-- 新碟首发 -->
+<div class="mod_index mod_index--mv mod_slide_box" id="mvlist">
+</div>
+
+<div class="footer" role="footer">
+    <div class="section_inner">
+        <div class="footer_info">
+            <div class="footer_copyright">
+
+                <p>
+                    <a href="#" rel="noopener nofollow" target="_blank" title="关于kownyou">关于kownyou</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="About Tencent">About kownyou</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="服务条款">服务条款</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="用户服务协议">用户服务协议</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="隐私政策">隐私政策</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="广告服务">广告服务</a> |
+                    <a href="#" rel="noopener nofollow" target="_blank" title="网站导航">网站导航</a>
+                </p>
+                <p>Copyright &copy; 2016 -
+                    <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                    Zeal. <a target="_blank" href="#" rel="noopener nofollow" title="All Rights Reserved.">All Rights
+                        Reserved.</a>
+                </p>
+                <p>www.kownyou.com <a target="_blank" href="#" rel="noopener nofollow" title="版权所有">版权所有</a> <a
+                        target="_blank" href="#" rel="noopener nofollow" title="鄂ICP备17008798号">鄂ICP备17008798号</a> <a
+                        target="_blank" href="#" rel="noopener nofollow" title="站长邮箱">站长邮箱</a> <a target="_blank"
+                                                                                                  href="#"
+                                                                                                  rel="noopener nofollow"
+                                                                                                  title="zhangleifor\@163.com">zhangleifor\@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="/js/plugins/slider/slider.js"></script>
+<script type="text/javascript" src="/js/plugins/lazyload/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        //SPD.mark(35);
+        $('.mod_slide_box').slider();
+        $("img").addClass("lazy");
+        $(function() {
+
+            $("img.lazy").lazyload({effect: "fadeIn"});
+
+        });
+
+    };
+</script>
+
+
+</body>
+</html>

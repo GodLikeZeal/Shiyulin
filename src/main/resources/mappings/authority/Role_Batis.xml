@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeal.shiyulin.modules.authority.dao.RoleDao">
+	<!--<cache type="com.zeal.shiyulin.common.cache.RedisCache"/>-->
+	<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 只要在对应的mapper配置文件中加入<cache />标签即可-->
+	<!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+	 <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+	<!-- INSERT一条Article  -->
+	<!-- INSERT一条Role  -->
+	<insert id="insert" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity" keyProperty="id" useGeneratedKeys="true">
+    	insert into role
+    	<trim prefix="(" suffix=")" suffixOverrides="," >
+				id,
+			rolename,
+			roledescribe,
+			rolestatu,
+			rolecreatetime,
+			del,
+
+       </trim>
+       <trim prefix="values (" suffix=")" suffixOverrides="," >
+    			#{id},
+			#{roleName},
+			#{roleDescribe},
+			#{roleStatu},
+			#{roleCreateTime},
+			#{del},
+
+    	</trim>
+	</insert>
+
+	<!-- Role UPDATE -->
+	<update id="update" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity">
+    	update role
+    	 <trim prefix="set" suffixOverrides=",">
+    			<if test="roleNameChanged==true">
+			  rolename=#{roleName},
+			</if>
+			<if test="roleDescribeChanged==true">
+			  roledescribe=#{roleDescribe},
+			</if>
+			<if test="roleStatuChanged==true">
+			  rolestatu=#{roleStatu},
+			</if>
+			<if test="roleCreateTimeChanged==true">
+			  rolecreatetime=#{roleCreateTime},
+			</if>
+			<if test="delChanged==true">
+			  del=#{del},
+			</if>
+
+            </trim>
+    	where id = #{id}
+
+    </update>
+
+	<!-- DELETE一条Role  -->
+	<delete id="delete" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity">
+		delete from role t
+		<include refid="whereCause"></include>
+	</delete>
+    <delete id="deleteById" parameterType="java.lang.String">
+		delete from role
+		where id = #{id}
+
+	</delete>
+
+
+	<sql id="whereCause">
+		<where>
+            <choose>
+                <when test="islike==1">
+                  <if test="id != null">
+                     and t.id LIKE  CONCAT('%',#{id},'%')
+                  </if>
+                  <if test="roleName != null">
+                     and t.rolename LIKE  CONCAT('%',#{roleName},'%')
+                  </if>
+                  <if test="roleDescribe != null">
+                     and t.roledescribe LIKE  CONCAT('%',#{roleDescribe},'%')
+                  </if>
+                  <if test="roleStatu != null">
+                     and t.rolestatu LIKE  CONCAT('%',#{roleStatu},'%')
+                  </if>
+                  <if test="roleCreateTime != null">
+                     and t.rolecreatetime LIKE  CONCAT('%',#{roleCreateTime},'%')
+                  </if>
+                  <if test="del != null">
+                     and t.del LIKE  CONCAT('%',#{del},'%')
+                  </if>
+                </when>
+                <otherwise>
+                  <if test="id != null">
+                      and t.id = #{id}
+                  </if>
+                  <if test="roleName != null">
+                      and t.rolename = #{roleName}
+                  </if>
+                  <if test="roleDescribe != null">
+                      and t.roledescribe = #{roleDescribe}
+                  </if>
+                  <if test="roleStatu != null">
+                      and t.rolestatu = #{roleStatu}
+                  </if>
+                  <if test="roleCreateTime != null">
+                      and t.rolecreatetime = #{roleCreateTime}
+                  </if>
+                  <if test="del != null">
+                      and t.del = #{del}
+                  </if>
+                </otherwise>
+            </choose>
+
+		</where>
+	</sql>
+
+    <!-- 根据ID来查找一条Role -->
+    <select id="findById" parameterType="java.lang.String"
+			resultType="com.zeal.shiyulin.modules.authority.entity.RoleEntity">
+		select * from role
+		where id = #{id}
+
+	</select>
+
+    <!-- 根据Class来查找Role -->
+	<select id="findByClass" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity"
+			resultType="com.zeal.shiyulin.modules.authority.entity.RoleEntity">
+		select * from role t
+		<include refid="whereCause"></include>
+	</select>
+
+<!-- 根据Class来分页查询查找Role -->
+	<select id="findByClassPaginate" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity"
+			resultType="com.zeal.shiyulin.modules.authority.entity.RoleEntity">
+		select * from role t
+		<include refid="whereCause"></include>
+		order by ${order} ${sort} limit  #{start},#{size}
+	</select>
+
+<!-- 根据Class来分页查询查找Role的分页总数量 -->
+	<select id="findByClassPaginateCount" parameterType="com.zeal.shiyulin.modules.authority.entity.RoleEntity"
+			resultType="long">
+		select count(1) from role t
+		<include refid="whereCause"></include>
+	</select>
+
+
+
+</mapper>

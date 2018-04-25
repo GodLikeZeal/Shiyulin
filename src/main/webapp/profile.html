@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <meta name="keywords"
+          content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+    <meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+    <meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+    <meta name="applicable-device" content="pc">
+    <meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+    <title>kownyou-打造最懂你的社交平台！</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script type="text/javascript">
+        var _speedMark = new Date();
+    </script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/plugins/bootstrap-table/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/modules/list.css"/>
+    <link rel="stylesheet" href="/css/modules/layout.css"/>
+    <link rel="stylesheet" href="/css/modules/profile.css"/>
+    <link rel="stylesheet" href="/css/animate.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+
+
+    <!--<script type="text/javascript">SPD.mark(31); // CSS加载完毕</script>-->
+</head>
+
+<body>
+<!-- 头部 S -->
+
+<script>
+    if (window.ActiveXObject || window.msIsStaticHTML) {
+        var ie = 6;
+
+        if (!!window.XMLHttpRequest) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("MSIE 7.0") != -1) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/4.0") != -1) {
+            ie = 8
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/5.0") != -1) {
+            ie = 9
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/6.0") != -1) {
+            ie = 10
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/7.0") != -1 || "undefined" == typeof attachEvent) {
+            ie = 11
+        }
+        ;
+        if (ie < 8) {
+            document.write("<div class=\"popup_top\"  id=\"zoom_warn\">使用更高版本的 <a href=\"http://www.google.cn/intl/zh-CN/chrome/browser/desktop/\" target=\"_blank\">Chrome</a> 或 <a href=\"https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads\" target=\"_blank\">Internet Explorer</a>，体验更精彩</div>");
+        }
+    }</script>
+<div class="mod_header">
+    <div class="section_inner">
+        <h1 class="qqmusic_title"><a href="//www.kownyou.com"><img srcset="img/logo/logo.png?nowebp=1 2x"
+                                                                   src="img/logo/logo.png?nowebp=1" alt="懂你网"
+                                                                   class="kownyou_logo"/></a><i>懂你网</i></h1>
+        <!-- 导航 S -->
+        <ul class="mod_top_nav" role="nav">
+            <li class="top_nav__item">
+                <a href="//www.kownyou.com" class="top_nav__link top_nav__link--current" title="首页">首页</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="猜你喜欢">猜你喜欢</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="APP" rel="noopener" target="_blank">APP</a>
+            </li>
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vip/daren_recruit/apply.html" data-stat="y_new.top.darenrecruit" class="top_nav__link js_nav_click" title="VIP" rel="noopener" target="_blank">音乐号</a>-->
+            <!--</li>-->
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vipportal/" class="top_nav__link" title="VIP" rel="noopener" target="_blank">VIP</a>-->
+            <!--</li>-->
+        </ul>
+
+        <!-- 导航 E -->
+        <div class="mod_top_search" role="search">
+            <div class="mod_search_input">
+                <input class="search_input__input" aria-label="请输入搜索内容" type="text" placeholder="" accesskey="s"/>
+                <button class="search_input__btn"><i class="icon_search"></i><span class="icon_txt">搜索</span></button>
+            </div>
+        </div>
+        <div class="header__opt">
+
+
+            <!-- 未登录 -->
+            @DIRECTIVE SAFE_OUTPUT_OPEN;
+            <span class="mod_top_login">
+		    <a class="top_login__link js_logined" href="/profile.html" ${session.user==null ?'style="display:none;"':''}>
+                        <img ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                             class="top_login__cover" alt=""/>
+                </a>
+                <a class="top_login__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">
+                        登录
+                </a>
+
+                <a class="login__link header__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">登录</a>
+                </span>
+            <!-- 用户信息 -->
+            <div class="popup_user">
+                <div class="popup_user_data"><a href="/profile.html"
+                                                class="popup_user_data__cover_link"
+                                                onclick="setStatCookie&amp;&amp;setStatCookie();"><img
+                        ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                    class="popup_user_data__cover js_user_img"><img
+                            src="//y.gtimg.cn/mediastyle/yqq/img/login_qq.png?max_age=2592000"
+                            class="popup_user_data__icon"></a>
+                    <div class="popup_user_data__name"><a
+                            href="#"
+                            onclick="setStatCookie&amp;&amp;setStatCookie();" class="">${session.user.userName!'#'}</a>
+                    </div>
+                    <div class="popup_user_data__lv"><a href="#"
+                                                        class="js_vip_jump" data-stat="y_new.top.pop.vip_icon"
+                                                        rel="noopener" target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/svip_g.png" alt="绿钻"
+                            class="popup_user_data__lv_icon"></a><a href="#"
+                                                                    class="js_vip_jump"
+                                                                    data-stat="y_new.top.pop.vip_icon" rel="noopener"
+                                                                    target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/sui_g.png?max_age=2592000" alt="付费音乐包"
+                            class="popup_user_data__lv_icon"></a></div>
+                    <a href="/logout" class="popup_user_data__out js_logout" data-stat="y_new.top.pop.logout">[退出登录]</a>
+                </div>
+                <ul class="mod_user_statistic">
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.gedan" data-tab="create"><strong
+                            class="user_statistic__number js_create">6</strong><span
+                            class="user_statistic__tit">收藏</span></a></li>
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.focus" data-tab="focus"><strong
+                            class="user_statistic__number js_focus">0</strong><span
+                            class="user_statistic__tit">关注</span></a></li>
+                    <li class="user_statistic__item user_statistic__item--last"><a href="javascript:;"
+                                                                                   class="js_profile_tab"
+                                                                                   data-stat="y_new.top.pop.fans"
+                                                                                   data-tab="fans"><strong
+                            class="user_statistic__number js_fans">0</strong><span class="user_statistic__tit">粉丝</span></a>
+                    </li>
+                </ul>
+                <div class="popup_user__toolbar"><a class="mod_btn_green popup_user__btn1 js_openvip"
+                                                    href="/release/article" target="_blank">发表文章</a>
+                </div>
+            </div>
+            @DIRECTIVE SAFE_OUTPUT_CLOSE;
+        </div>
+    </div>
+    <!-- 头部 E -->
+
+
+    <!-- 头部 E -->
+
+
+    <div class="js_mod_profile_unlogin" style="display:none;">
+    </div>
+
+    <div class="mod_profile js_user_data" style="">
+        <div class="section_inner">
+            @DIRECTIVE SAFE_OUTPUT_OPEN;
+            <div class="profile__cover_link">
+
+                <img ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic} onerror="this.src=&#39;//y.gtimg.cn/mediastyle/global/img/person_300.png?max_age=31536000&#39;;this.onerror=null;" alt="Zeal" class="profile__cover" id="profileHead">
+
+            </div>
+            <h1 class="profile__tit">
+                <span class="profile__name">${session.user.userName}</span><img ${session.userInfo.userSex==1 ?'src="/img/icon/female.svg"': 'src="/img/icon/male.svg"'} class="lv_icon">
+            </h1>
+            <ul class="mod_user_statistic">
+                <li class="user_statistic__item">
+                    <a href="javascript:;" class="js_tab" data-tab="focus_singer" data-stat="y_new.profile.header.focus_click"><strong class="user_statistic__number js_num_follow">1</strong><span class="user_statistic__tit">关注</span></a>
+                </li>
+                <li class="user_statistic__item user_statistic__item--last">
+                    <a href="javascript:;" class="js_tab" data-tab="fans" data-stat="y_new.profile.header.fans_click"><strong class="user_statistic__number js_num_fans">0</strong><span class="user_statistic__tit">粉丝</span></a>
+                </li>
+            </ul>
+            @DIRECTIVE SAFE_OUTPUT_CLOSE;
+
+            <button class="btn_lock sprite js_btn_lock" title="主页已公开" data-status="0"><span class="icon_txt">主页已公开</span></button>
+
+
+        </div></div>
+
+    <div class="main main--profile" style="">
+        @DIRECTIVE SAFE_OUTPUT_OPEN;
+        <div class="mod_tab profile_nav" role="nav" id="nav">
+            <a class="mod_tab__item mod_tab__current" href="javascript:;" id="like_tab" data-tab="like" data-user="${session.user.id}">我收藏</a>
+            <a class="mod_tab__item" href="javascript:;" id="buy_tab" data-tab="buy" data-user="${session.user.id}" style="display: none;">我的已购</a>
+            <a class="mod_tab__item" href="javascript:;" id="create_tab" data-tab="create" data-user="${session.user.id}">我浏览过的</a>
+            <a class="mod_tab__item" href="javascript:;" id="focus_tab" data-tab="focus" data-user="${session.user.id}">关注</a>
+            <a class="mod_tab__item" href="javascript:;" id="fans_tab" data-tab="fans" data-user="${session.user.id}">粉丝</a>
+            <a class="mod_tab__item" href="javascript:;" id="uploadmv_tab" data-tab="uploadmv" data-user="${session.user.id}">我创作发表的</a>
+            <a class="mod_tab__item" href="javascript:;" id="radio_tab" data-tab="radio" data-user="${session.user.id}" style="display:none;">主播电台</a>
+        </div>
+        @DIRECTIVE SAFE_OUTPUT_CLOSE;
+
+        <div class="js_box" id="like_box" style="display: block;">
+            <!--<div class="mod_tab" role="nav">-->
+                <!--<a class="mod_tab__item mod_tab__current" href="javascript:;" data-tab="like_song" data-stat="y_new.profile.like.tab.song">歌曲 45</a>-->
+                <!--<a class="mod_tab__item" href="javascript:;" data-tab="like_playlist" data-stat="y_new.profile.like.tab.playlist">歌单 0</a>-->
+                <!--<a class="mod_tab__item" href="javascript:;" data-tab="like_album" data-stat="y_new.profile.like.tab.album">专辑 1</a>-->
+                <!--<a class="mod_tab__item" href="javascript:;" data-tab="like_mv" data-stat="y_new.profile.like.tab.mv">MV 0</a>-->
+            <!--</div>-->
+            <div class="profile_cont">
+                <div class="js_sub" id="like_song_box" style="display: block;">
+                    <div class="mod_songlist_toolbar">
+                        <a href="javascript:;" class="mod_btn_green js_all_play" data-stat="y_new.profile.like.song.playall"><i class="mod_btn_green__icon_play"></i>播放全部</a>
+                        <a href="javascript:;" class="mod_btn js_all_fav" data-stat="y_new.profile.like.song.addall"><i class="mod_btn__icon_add"></i>添加到</a>
+                        <a href="javascript:;" class="mod_btn js_all_down" data-stat="y_new.profile.like.song.downloadall"><i class="mod_btn__icon_down"></i>下载</a>
+                        <a href="javascript:;" class="mod_btn js_batch" data-stat="y_new.profile.like.song.batch"><i class="mod_btn__icon_batch"></i>批量操作</a>
+                    </div>
+                    <div class="mod_songlist">
+                        <ul class="songlist__header">
+                            <li class="songlist__edit songlist__edit--check sprite">
+                                <input type="checkbox" class="songlist__checkbox js_check_all">
+                            </li>
+                            <li class="songlist__header_name">歌曲</li>
+                            <li class="songlist__header_author">歌手</li>
+                            <li class="songlist__header_album">专辑</li>
+                            <li class="songlist__header_time">时长</li>
+                        </ul>
+                        <ul class="songlist__list">
+
+                            <li mid="4741522" ix="30">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/004JnAoa0yUaH5.html" class="js_song" title="길 (路) ">길 (路)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003FPLbE0fZshL.html" data-singermid="003FPLbE0fZshL" data-singerid="173429" title="박정환 (朴政焕)" class="singer_name">박정환 (朴政焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">04:42</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741522" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741489" ix="31">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/004J5EJq0VzGnI.html" class="js_song" title="쾌검 (快剑) ">쾌검 (快剑)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">02:07</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741489" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="102877693" ix="32">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+                                        <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
+
+
+                                        <a href="https://y.qq.com/n/yqq/mv/v/w017925co0y.html" class="songlist__icon songlist__icon_mv sprite" rel="noopener" target="_blank" title="MV"><span class="icon_txt">MV</span></a>
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001PedLg4dakYI.html" class="js_song" title="野子 (Live) ">野子 (Live)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003Augcx1XmqVh.html" data-singermid="003Augcx1XmqVh" data-singerid="945054" title="苏运莹" class="singer_name">苏运莹</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001jWeXy1J3XfE" data-albumid="1040627" href="https://y.qq.com/n/yqq/album/001jWeXy1J3XfE.html" title="第二季中国好歌曲十大金曲" class="album_name">第二季中国好歌曲十大金曲</a>
+                                    </div>
+                                    <div class="songlist__time">04:28</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="102877693" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="840144" ix="33">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+                                        <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
+
+
+                                        <a href="https://y.qq.com/n/yqq/mv/v/p0021e9pe2c.html" class="songlist__icon songlist__icon_mv sprite" rel="noopener" target="_blank" title="MV"><span class="icon_txt">MV</span></a>
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/000F8a1d3gmoJg.html" class="js_song" title="Listen To The Sound ">Listen To The Sound<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003909zJ1fjCF0.html" data-singermid="003909zJ1fjCF0" data-singerid="2423" title="Building 429" class="singer_name">Building 429</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="003JDK843M6OLT" data-albumid="71143" href="https://y.qq.com/n/yqq/album/003JDK843M6OLT.html" title="Listen To The Sound" class="album_name">Listen To The Sound</a>
+                                    </div>
+                                    <div class="songlist__time">03:40</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="840144" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5100660" ix="34">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <a href="https://y.qq.com/n/yqq/mv/v/k00153x4y4r.html" class="songlist__icon songlist__icon_mv sprite" rel="noopener" target="_blank" title="MV"><span class="icon_txt">MV</span></a>
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/004WNnRd0JugjM.html" class="js_song" title="Crooked ">Crooked<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/000t2qd13dLpae.html" data-singermid="000t2qd13dLpae" data-singerid="19851" title="G-DRAGON (权志龙)" class="singer_name">G-DRAGON (权志龙)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="002e1kVt33k3e3" data-albumid="447225" href="https://y.qq.com/n/yqq/album/002e1kVt33k3e3.html" title="Japan Album : Coup D’etat + One Of A Kind &amp; Heartbreaker (2CD)" class="album_name">Japan Album : Coup D’etat + One Of A Kind &amp; Heartbreaker (2CD)</a>
+                                    </div>
+                                    <div class="songlist__time">03:44</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5100660" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="102193601" ix="35">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+                                        <i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>
+
+
+                                        <a href="https://y.qq.com/n/yqq/mv/v/f0016nmmdtn.html" class="songlist__icon songlist__icon_mv sprite" rel="noopener" target="_blank" title="MV"><span class="icon_txt">MV</span></a>
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/0022R1L82mb8Hp.html" class="js_song" title="See You Again 《速度与激情7》电影主题曲|《速度与激情7》电影片尾曲">See You Again<span class="songlist__song_txt">《速度与激情7》电影主题曲|《速度与激情7》电影片尾曲</span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/000CQ06r24Naco.html" data-singermid="000CQ06r24Naco" data-singerid="12978" title="Wiz Khalifa" class="singer_name">Wiz Khalifa</a>
+
+                                        /
+                                        <a href="https://y.qq.com/n/yqq/singer/000jnR7q3pCzYG.html" data-singermid="000jnR7q3pCzYG" data-singerid="39000" title="Charlie Puth" class="singer_name">Charlie Puth</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="0039Pp2W372JsM" data-albumid="962606" href="https://y.qq.com/n/yqq/album/0039Pp2W372JsM.html" title="Furious 7 (Original Motion Picture Soundtrack)" class="album_name">Furious 7 (Original Motion Picture Soundtrack)</a>
+                                    </div>
+                                    <div class="songlist__time">03:49</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="102193601" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099125" ix="36">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/00374GtN0oZ8Tc.html" class="js_song" title="하얀 발자국 ~북방설원~ (白色足迹~北方雪原~) ">하얀 발자국 ~북방설원~ (白色足迹~北方雪原~)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003FPLbE0fZshL.html" data-singermid="003FPLbE0fZshL" data-singerid="173429" title="박정환 (朴政焕)" class="singer_name">박정환 (朴政焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:56</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099125" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099124" ix="37">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/000jhCxl2R0Hjr.html" class="js_song" title="설빙마을 (冰雪村子) ">설빙마을 (冰雪村子)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001MHKAB4JazWG.html" data-singermid="001MHKAB4JazWG" data-singerid="173431" title="Lin-G (홍정혜)" class="singer_name">Lin-G (홍정혜)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">01:36</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099124" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099123" ix="38">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001z7Yu23DbIeN.html" class="js_song" title="모험가의 쉼터 (冒险家的休息) ">모험가의 쉼터 (冒险家的休息)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:24</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099123" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099121" ix="39">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/004eiI5U0qKBPi.html" class="js_song" title="얼어붙은 숨결 (冻结的气息) ">얼어붙은 숨결 (冻结的气息)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003HqdYl3jLSnQ.html" data-singermid="003HqdYl3jLSnQ" data-singerid="1184928" title="김지훈 (金智勋)" class="singer_name">김지훈 (金智勋)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:11</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099121" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099120" ix="40">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001g52iz4F54PD.html" class="js_song" title="설원의 모험가들 (雪原的冒险家们) ">설원의 모험가들 (雪原的冒险家们)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:25</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099120" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099119" ix="41">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001lwwX33kESQ4.html" class="js_song" title="하늘을 만지다 (触摸苍穹) ">하늘을 만지다 (触摸苍穹)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:26</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099119" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099113" ix="42">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/002FYt5W05NuBQ.html" class="js_song" title="강철의 병기 (钢铁武器) ">강철의 병기 (钢铁武器)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/00458eL418xeDm.html" data-singermid="00458eL418xeDm" data-singerid="173421" title="김창범 (金昌范)" class="singer_name">김창범 (金昌范)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:11</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099113" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099111" ix="43">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/003Yb73U1V0u46.html" class="js_song" title="결투장 (挑战书) ">결투장 (挑战书)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001MHKAB4JazWG.html" data-singermid="001MHKAB4JazWG" data-singerid="173431" title="Lin-G (홍정혜)" class="singer_name">Lin-G (홍정혜)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:03</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099111" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099107" ix="44">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/0032CZZJ3whH1C.html" class="js_song" title="구름이 머무는 곳 (云朵逗留的地方) ">구름이 머무는 곳 (云朵逗留的地方)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003HqdYl3jLSnQ.html" data-singermid="003HqdYl3jLSnQ" data-singerid="1184928" title="김지훈 (金智勋)" class="singer_name">김지훈 (金智勋)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:17</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099107" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099105" ix="45">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/000A6RCD1ttjjL.html" class="js_song" title="자작나무 숲 (白桦树林) ">자작나무 숲 (白桦树林)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/0034tT4U3kCi6A.html" data-singermid="0034tT4U3kCi6A" data-singerid="173426" title="임효범 (任孝范)" class="singer_name">임효범 (任孝范)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:09</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099105" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099104" ix="46">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/002aS53P34YbjK.html" class="js_song" title="바람이 잠든 곳으로 ~황후의 노래~ (风安息的地方~皇后的歌~) 随风而逝韩文版">바람이 잠든 곳으로 ~황후의 노래~ (风安息的地方~皇后的歌~)<span class="songlist__song_txt">随风而逝韩文版</span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003FPLbE0fZshL.html" data-singermid="003FPLbE0fZshL" data-singerid="173429" title="박정환 (朴政焕)" class="singer_name">박정환 (朴政焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:14</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099104" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099093" ix="47">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/0036REO42AfZaV.html" class="js_song" title="바람공원 (风之公园) ">바람공원 (风之公园)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003FPLbE0fZshL.html" data-singermid="003FPLbE0fZshL" data-singerid="173429" title="박정환 (朴政焕)" class="singer_name">박정환 (朴政焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">01:21</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099093" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099087" ix="48">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/004Y57Ut2LjzJp.html" class="js_song" title="이계의 공간 (异界空间) ">이계의 공간 (异界空间)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/003FPLbE0fZshL.html" data-singermid="003FPLbE0fZshL" data-singerid="173429" title="박정환 (朴政焕)" class="singer_name">박정환 (朴政焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:02</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099087" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099086" ix="49">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001kFZNR0MUzSl.html" class="js_song" title="뒤틀린 힘 (扭曲的力量) ">뒤틀린 힘 (扭曲的力量)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001MHKAB4JazWG.html" data-singermid="001MHKAB4JazWG" data-singerid="173431" title="Lin-G (홍정혜)" class="singer_name">Lin-G (홍정혜)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">01:41</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099086" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099085" ix="50">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/00154jz84eiou0.html" class="js_song" title="미궁 속으로 (往迷宫里) ">미궁 속으로 (往迷宫里)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001MHKAB4JazWG.html" data-singermid="001MHKAB4JazWG" data-singerid="173431" title="Lin-G (홍정혜)" class="singer_name">Lin-G (홍정혜)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">02:06</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099085" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099079" ix="51">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001cBRrR0RHsbs.html" class="js_song" title="시련의 나날들 (考验的日子) ">시련의 나날들 (考验的日子)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">04:44</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099079" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="5099077" ix="52">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001GQb6x0sFJbA.html" class="js_song" title="백청산맥 (白青山脉) ">백청산맥 (白青山脉)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="004X09JV3yut76" data-albumid="447808" href="https://y.qq.com/n/yqq/album/004X09JV3yut76.html" title="Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)" class="album_name">Blade &amp; Soul Silverfrost Mountains Original Soundtrack (剑灵 白青山脉 OST)</a>
+                                    </div>
+                                    <div class="songlist__time">03:10</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="5099077" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741546" ix="53">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/003rPfS04ScBkX.html" class="js_song" title="포화란의 초대장 (火炮兰的邀请函) ">포화란의 초대장 (火炮兰的邀请函)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">02:18</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741546" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741548" ix="54">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001fm0Di0v4Eb8.html" class="js_song" title="강인한 일격 (坚强的一击) ">강인한 일격 (坚强的一击)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/0034tT4U3kCi6A.html" data-singermid="0034tT4U3kCi6A" data-singerid="173426" title="임효범 (任孝范)" class="singer_name">임효범 (任孝范)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">01:52</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741548" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741545" ix="55">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001vnavJ3aSZLE.html" class="js_song" title="위험한 탈출 (危险的出走) ">위험한 탈출 (危险的出走)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001MHKAB4JazWG.html" data-singermid="001MHKAB4JazWG" data-singerid="173431" title="Lin-G (홍정혜)" class="singer_name">Lin-G (홍정혜)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">01:49</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741545" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741540" ix="56">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/002RSHP63pG7Om.html" class="js_song" title="휘몰아 치는 탁기 Part.1 (漫天浊气珠 Part.1) ">휘몰아 치는 탁기 Part.1 (漫天浊气珠 Part.1)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/0034tT4U3kCi6A.html" data-singermid="0034tT4U3kCi6A" data-singerid="173426" title="임효범 (任孝范)" class="singer_name">임효범 (任孝范)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">02:43</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741540" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741541" ix="57">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001ms8dy327PTv.html" class="js_song" title="휘몰아 치는 탁기 Part.2 (漫天浊气珠 Part.2) ">휘몰아 치는 탁기 Part.2 (漫天浊气珠 Part.2)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/00458eL418xeDm.html" data-singermid="00458eL418xeDm" data-singerid="173421" title="김창범 (金昌范)" class="singer_name">김창범 (金昌范)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">03:53</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741541" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741538" ix="58">
+                                <div class="songlist__item" onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/000XvYW23mUOgP.html" class="js_song" title="왕이 되는 의식 (冠冕仪式) ">왕이 되는 의식 (冠冕仪式)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">05:10</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741538" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                            <li mid="4741536" ix="59">
+                                <div class="songlist__item songlist__item--even " onmouseover="this.className=(this.className+&#39; songlist__item--hover&#39;)" onmouseout="this.className=this.className.replace(/ songlist__item--hover/, &#39;&#39;)">
+                                    <div class="songlist__edit songlist__edit--check sprite">
+                                        <input type="checkbox" class="songlist__checkbox">
+                                    </div>
+                                    <div class="songlist__songname">
+
+
+                                        <span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/001FiwVG1TjnPf.html" class="js_song" title="장수의 망령 (商人的灵魂) ">장수의 망령 (商人的灵魂)<span class="songlist__song_txt"></span></a></span>
+                                        <div class="mod_list_menu">
+                                            <a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">
+                                                <i class="list_menu__icon_play"></i>
+                                                <span class="icon_txt">播放</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">
+                                                <i class="list_menu__icon_add"></i>
+                                                <span class="icon_txt">添加到歌单</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__down js_down" title="下载" aria-haspopup="true">
+                                                <i class="list_menu__icon_down"></i>
+                                                <span class="icon_txt">下载</span>
+                                            </a>
+                                            <a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">
+                                                <i class="list_menu__icon_share"></i>
+                                                <span class="icon_txt">分享</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="songlist__artist">
+
+
+                                        <a href="https://y.qq.com/n/yqq/singer/001wYOTq4Xkqoz.html" data-singermid="001wYOTq4Xkqoz" data-singerid="173423" title="김치환 (金志焕)" class="singer_name">김치환 (金志焕)</a>
+
+                                    </div>
+                                    <div class="songlist__album">
+                                        <a data-albummid="001t9B9b39Yqf9" data-albumid="421506" href="https://y.qq.com/n/yqq/album/001t9B9b39Yqf9.html" title="블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)" class="album_name">블레이드 &amp; 소울 OST - The World (剑灵 OST - The World)</a>
+                                    </div>
+                                    <div class="songlist__time">02:05</div>
+                                    <div class="songlist__other">
+
+                                    </div>
+                                    <a href="javascript:;" class="songlist__delete js_delfav_song" data-id="4741536" title="删除"><span class="icon_txt">删除</span></a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="mod_page_nav js_pager"><strong class="current">1</strong><a href="javascript:;" class="js_pageindex" data-index="2" hidefocus="">2</a><a href="javascript:;" class="next js_pageindex" data-index="2" title="下一页" hidefocus=""><span>&gt;</span></a></div></div>
+                <div class="js_sub" style="display:none;" id="like_playlist_box"></div>
+                <div class="js_sub" style="display:none;" id="like_album_box"></div>
+                <div class="js_sub" style="display:none;" id="like_mv_box"></div>
+            </div>
+        </div>
+        <!-- 歌单 -->
+        <div class="js_box profile_cont" id="buy_box" style="display:none;">
+            <div class="mod_tab" role="nav">
+                <a class="mod_tab__item" href="javascript:;" data-tab="buy_album" data-stat="y_new.profile.album.tab.album">数字专辑</a>
+                <a class="mod_tab__item" href="javascript:;" data-tab="buy_song" data-stat="y_new.profile.album.tab.song">单曲</a>
+                <a class="mod_tab__item" href="javascript:;" data-tab="buy_peri" data-stat="y_new.profile.album.tab.peri">实体周边</a>
+            </div>
+            <div class="profile_cont">
+                <div class="js_sub" id="buy_album_box"></div>
+                <div class="js_sub" style="display:none;" id="buy_song_box"></div>
+                <div class="js_sub" style="display:none;" id="buy_peri_box"></div>
+            </div>
+        </div>
+        <!-- 歌单 -->
+        <div class="js_box profile_cont" id="create_box" style="display:none;"></div>
+        <!-- 关注 -->
+        <div class="js_box" id="focus_box" style="display:none;">
+            <div class="mod_tab" role="nav">
+                <a class="mod_tab__item mod_tab__current" href="javascript:;" data-tab="focus_singer" data-stat="y_new.profile.focus.tab.singer">歌手</a>
+                <a class="mod_tab__item" href="javascript:;" data-tab="focus_user" data-stat="y_new.profile.focus.tab.user">用户</a>
+            </div>
+            <div class="profile_cont">
+                <a href="javascript:;" class="mod_btn btn_focus_fan js_focus_friends" style="display: none;"><i class="mod_btn__icon_new"></i>关注更多好友</a>
+                <div class="js_sub" id="focus_singer_box"></div>
+                <div class="js_sub" style="display:none;" id="focus_user_box"></div>
+            </div>
+        </div>
+        <div class="js_box profile_cont" id="fans_box" style="display:none;">
+        </div>
+        <!-- 上传的MV -->
+        <div class="js_box profile_cont" id="uploadmv_box" style="display:none;">
+            <table id="own" data-height="400" data-mobile-responsive="true" data-id-field="id">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true" data-align="center"></th>
+                    <th data-formatter="sortFormatter"  data-align="center" >序号</th>
+                    <th data-field="id"  data-align="center" data-visible=false>ID</th>
+                    <th data-field="title" data-align="center" >封面</th>
+                    <th data-field="title" data-align="center" >标题</th>
+                    <th data-field="type" data-align="center" >类型</th>
+                    <th data-field="reader" data-align="center"  >浏览量</th>
+                    <th data-field="reprint" data-align="center"  >转载次数</th>
+                    <th data-field="thumbs" data-align="center"  >点赞次数</th>
+                    <th data-field="comment" data-align="center"  >评论人数</th>
+                    <th data-field="createDate" data-align="center"  >上传日期</th>
+                    <th data-align="center" data-formatter="meactionFormatter" data-events="actionEvents">操作</th>
+                </tr>
+                </thead>
+            </table>
+        <div class="mod_page_nav js_pager"><strong class="current">1</strong><a href="javascript:;" class="js_pageindex" data-index="2" hidefocus="">2</a><a href="javascript:;" class="next js_pageindex" data-index="2" title="下一页" hidefocus=""><span>&gt;</span></a></div></div>
+
+        </div>
+        <!-- 音乐头条 -->
+        <div class="js_box profile_cont" id="magazine_box" style="display:none;"></div>
+        <!-- 我的主播电台 -->
+        <div class="js_box profile_cont" id="radio_box" style="display:none;">
+        </div>
+    </div>
+    <div id="locked" style="display:none;"></div>
+    <div id="cgi_none_box" class="" style="display:none;">
+        <div class="none_txt">
+            <i class="none_txt__symbol"></i>
+
+            <p>系统错误，请<a href="javascript:;" onclick="window.location.reload();">刷新</a>重试！</p>
+
+        </div>
+        <div class="bg_detail"><i class="bg_detail__pic"></i></div>
+    </div>
+
+    <div class="footer" role="footer">
+        <div class="section_inner">
+            <div class="footer_info">
+                <div class="footer_copyright">
+
+                    <p>
+                        <a href="#" rel="noopener nofollow" target="_blank" title="关于kownyou">关于kownyou</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="About Tencent">About kownyou</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="服务条款">服务条款</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="用户服务协议">用户服务协议</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="隐私政策">隐私政策</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="广告服务">广告服务</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="网站导航">网站导航</a>
+                    </p>
+                    <p>Copyright &copy; 2016 -
+                        <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                        Zeal. <a target="_blank" href="#" rel="noopener nofollow" title="All Rights Reserved.">All Rights
+                            Reserved.</a>
+                    </p>
+                    <p>www.kownyou.com <a target="_blank" href="#" rel="noopener nofollow" title="版权所有">版权所有</a> <a
+                            target="_blank" href="#" rel="noopener nofollow" title="鄂ICP备17008798号">鄂ICP备17008798号</a> <a
+                            target="_blank" href="#" rel="noopener nofollow" title="站长邮箱">站长邮箱</a> <a target="_blank"
+                                                                                                      href="#"
+                                                                                                      rel="noopener nofollow"
+                                                                                                      title="zhangleifor\@163.com">zhangleifor\@163.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="/js/plugins/slider/slider.js"></script>
+    <script type="text/javascript" src="/js/plugins/lazyload/js/jquery.lazyload.min.js"></script>>
+    <script type="text/javascript" src="/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>>
+    <script type="text/javascript" src="/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>>
+    <script type="text/javascript">
+
+        //序号的转换器
+        function sortFormatter(value,row,index){
+            //return index+1; //序号正序排序从1开始
+            var pageSize=$('#own').bootstrapTable('getOptions').pageSize;//通过表的#id 可以得到每页多少条
+            var pageNumber=$('#own').bootstrapTable('getOptions').pageNumber;//通过表的#id 可以得到当前第几页
+            return pageSize * (pageNumber - 1) + index + 1;    //返回每条的序号： 每页条数 * （当前页 - 1 ）+ 序号
+        }
+
+        /**
+         * 操作列的格式化
+         * \@param value 所在collumn的当前显示值
+         * \@param row 整个行的数据 ，对象化，可通过.获取
+         * \@param index 所在collumn的当前index
+         * \@returns {string}
+         */
+        function meactionFormatter (value, row, index) {
+            return '<a class="detail" style="margin: 0 5px" ><i class="fa fa-info-circle" title="详情"></i></a>   ' +  '<a class="mod" style="margin: 0 5px"><i class="fa fa-pencil" title="修改"></i></a>  ' + '<a class="delete" style="margin: 0 5px"><i class="fa fa-trash-o" title="删除"></i></a>';
+        }
+
+        window.onload = function () {
+            //SPD.mark(35);	// onload
+            $('.mod_slide_box').slider();
+            $("img").addClass("lazy");
+            $(function() {
+                $("img.lazy").lazyload({effect: "fadeIn"});
+            });
+
+            $('.mod_tab__item').on('click',function (e) {
+                $this = $(this);
+                var name = $this.attr('data-tab');
+                $('.mod_tab__item').removeClass('mod_tab__current');
+                $this.addClass('mod_tab__current');
+                $('.js_box').hide();
+                $('#'+name+'_box').show();
+                switch (name){
+                    case 'uploadmv':
+                    //查询自己的上传作品
+                        //初始化表格
+                        $('#own').bootstrapTable({
+                            url: "/article/getArticleList",  //这个接口需要处理bootstrap table传递的固定参数
+                            method: 'get',    //请求方法
+                            classes:'table table-hover table-no-bordered',  //设置表格无边框
+                            idField:'userId', //指定主键列
+                            //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                            strictSearch: true,   //是否全局搜索
+                            searchOnEnterKey: true,   //是否按回车键搜索
+                            //contentType: "application/x-www-form-urlencoded",  如果是post请求则需要显式的申明
+                            queryParamsType:'', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort   设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+                            //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+                            pagination: true, //是否显示分页（*）
+                            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+                            sortable: false,      //是否启用排序
+                            sortOrder: "asc",     //排序方式
+                            pageNumber:1,      //初始化加载第一页，默认第一页
+                            pageSize: 10,      //每页的记录行数（*）
+                            pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+                            showRefresh: true,   //是否显示刷新按钮
+                            showToggle: true,
+                            showColumns: true,  //是否显示所有的列
+                            minimumCountColumns: 2,    //最少允许的列数
+                            //clickToSelect: true,    //是否启用点击选中行
+                            iconSize: 'outline',
+                            toolbar: '#exampleTableEventsToolbar', //工具按钮用哪个容器
+                            striped: true,      //是否显示行间隔色
+                            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                            icons: {
+                                refresh: 'glyphicon-repeat',
+                                toggle: 'glyphicon-list-alt',
+                                columns: 'glyphicon-list'
+                            }
+                        });
+                    break;
+                    default : break;
+                }
+            })
+        };
+    </script>
+
+</div>
+</body>
+</html>

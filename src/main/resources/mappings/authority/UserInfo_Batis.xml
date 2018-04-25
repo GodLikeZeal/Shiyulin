@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeal.shiyulin.modules.authority.dao.UserInfoDao">
+    <!--<cache type="com.zeal.shiyulin.common.cache.RedisCache"/>-->
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 只要在对应的mapper配置文件中加入<cache />标签即可-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+     <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <!-- INSERT一条Article  -->
+	<!-- INSERT一条UserInfo  -->
+	<insert id="insert" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity" keyProperty="id" useGeneratedKeys="true">
+    	insert into user_info
+    	<trim prefix="(" suffix=")" suffixOverrides="," >
+				id,
+			nnationwide,
+			nuseradress,
+			userage,
+			usersex,
+			userpic,
+			userautograph,
+			score,
+			money,
+			level,
+			qrcode,
+			country,
+			thumbs,
+			tags,
+			birthday,
+			constellation,
+			job,
+			company,
+			college,
+			userid,
+			updatedate,
+			province,
+			city,
+			nationwide,
+			useradress,
+			ncountry,
+			nprovince,
+			ncity,
+
+       </trim>
+       <trim prefix="values (" suffix=")" suffixOverrides="," >
+    			#{id},
+			#{nnationwide},
+			#{nuserAdress},
+			#{userAge},
+			#{userSex},
+			#{userPic},
+			#{userAutograph},
+			#{score},
+			#{money},
+			#{level},
+			#{qrCode},
+			#{country},
+			#{thumbs},
+			#{tags},
+			#{birthday},
+			#{constellation},
+			#{job},
+			#{company},
+			#{college},
+			#{userId},
+			#{updateDate},
+			#{province},
+			#{city},
+			#{nationwide},
+			#{userAdress},
+			#{ncountry},
+			#{nprovince},
+			#{ncity},
+
+    	</trim>
+	</insert>
+
+	<!-- UserInfo UPDATE -->
+	<update id="update" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+    	update user_info
+    	 <trim prefix="set" suffixOverrides=",">
+    			<if test="nnationwideChanged==true">
+			  nnationwide=#{nnationwide},
+			</if>
+			<if test="nuserAdressChanged==true">
+			  nuseradress=#{nuserAdress},
+			</if>
+			<if test="userAgeChanged==true">
+			  userage=#{userAge},
+			</if>
+			<if test="userSexChanged==true">
+			  usersex=#{userSex},
+			</if>
+			<if test="userPicChanged==true">
+			  userpic=#{userPic},
+			</if>
+			<if test="userAutographChanged==true">
+			  userautograph=#{userAutograph},
+			</if>
+			<if test="scoreChanged==true">
+			  score=#{score},
+			</if>
+			<if test="moneyChanged==true">
+			  money=#{money},
+			</if>
+			<if test="levelChanged==true">
+			  level=#{level},
+			</if>
+			<if test="qrCodeChanged==true">
+			  qrcode=#{qrCode},
+			</if>
+			<if test="countryChanged==true">
+			  country=#{country},
+			</if>
+			<if test="thumbsChanged==true">
+			  thumbs=#{thumbs},
+			</if>
+			<if test="tagsChanged==true">
+			  tags=#{tags},
+			</if>
+			<if test="birthdayChanged==true">
+			  birthday=#{birthday},
+			</if>
+			<if test="constellationChanged==true">
+			  constellation=#{constellation},
+			</if>
+			<if test="jobChanged==true">
+			  job=#{job},
+			</if>
+			<if test="companyChanged==true">
+			  company=#{company},
+			</if>
+			<if test="collegeChanged==true">
+			  college=#{college},
+			</if>
+			<if test="userIdChanged==true">
+			  userid=#{userId},
+			</if>
+			<if test="updateDateChanged==true">
+			  updatedate=#{updateDate},
+			</if>
+			<if test="provinceChanged==true">
+			  province=#{province},
+			</if>
+			<if test="cityChanged==true">
+			  city=#{city},
+			</if>
+			<if test="nationwideChanged==true">
+			  nationwide=#{nationwide},
+			</if>
+			<if test="userAdressChanged==true">
+			  useradress=#{userAdress},
+			</if>
+			<if test="ncountryChanged==true">
+			  ncountry=#{ncountry},
+			</if>
+			<if test="nprovinceChanged==true">
+			  nprovince=#{nprovince},
+			</if>
+			<if test="ncityChanged==true">
+			  ncity=#{ncity},
+			</if>
+
+            </trim>
+    	where id = #{id}
+
+    </update>
+
+	<!-- DELETE一条UserInfo  -->
+	<delete id="delete" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+		delete from user_info t
+		<include refid="whereCause"></include>
+	</delete>
+    <delete id="deleteById" parameterType="java.lang.String">
+		delete from user_info
+		where id = #{id}
+
+	</delete>
+
+
+	<sql id="whereCause">
+		<where>
+            <choose>
+                <when test="islike==1">
+                  <if test="id != null">
+                     and t.id LIKE  CONCAT('%',#{id},'%')
+                  </if>
+                  <if test="nnationwide != null">
+                     and t.nnationwide LIKE  CONCAT('%',#{nnationwide},'%')
+                  </if>
+                  <if test="nuserAdress != null">
+                     and t.nuseradress LIKE  CONCAT('%',#{nuserAdress},'%')
+                  </if>
+                  <if test="userAge != null">
+                     and t.userage LIKE  CONCAT('%',#{userAge},'%')
+                  </if>
+                  <if test="userSex != null">
+                     and t.usersex LIKE  CONCAT('%',#{userSex},'%')
+                  </if>
+                  <if test="userPic != null">
+                     and t.userpic LIKE  CONCAT('%',#{userPic},'%')
+                  </if>
+                  <if test="userAutograph != null">
+                     and t.userautograph LIKE  CONCAT('%',#{userAutograph},'%')
+                  </if>
+                  <if test="score != null">
+                     and t.score LIKE  CONCAT('%',#{score},'%')
+                  </if>
+                  <if test="money != null">
+                     and t.money LIKE  CONCAT('%',#{money},'%')
+                  </if>
+                  <if test="level != null">
+                     and t.level LIKE  CONCAT('%',#{level},'%')
+                  </if>
+                  <if test="qrCode != null">
+                     and t.qrcode LIKE  CONCAT('%',#{qrCode},'%')
+                  </if>
+                  <if test="country != null">
+                     and t.country LIKE  CONCAT('%',#{country},'%')
+                  </if>
+                  <if test="thumbs != null">
+                     and t.thumbs LIKE  CONCAT('%',#{thumbs},'%')
+                  </if>
+                  <if test="tags != null">
+                     and t.tags LIKE  CONCAT('%',#{tags},'%')
+                  </if>
+                  <if test="birthday != null">
+                     and t.birthday LIKE  CONCAT('%',#{birthday},'%')
+                  </if>
+                  <if test="constellation != null">
+                     and t.constellation LIKE  CONCAT('%',#{constellation},'%')
+                  </if>
+                  <if test="job != null">
+                     and t.job LIKE  CONCAT('%',#{job},'%')
+                  </if>
+                  <if test="company != null">
+                     and t.company LIKE  CONCAT('%',#{company},'%')
+                  </if>
+                  <if test="college != null">
+                     and t.college LIKE  CONCAT('%',#{college},'%')
+                  </if>
+                  <if test="userId != null">
+                     and t.userid LIKE  CONCAT('%',#{userId},'%')
+                  </if>
+                  <if test="updateDate != null">
+                     and t.updatedate LIKE  CONCAT('%',#{updateDate},'%')
+                  </if>
+                  <if test="province != null">
+                     and t.province LIKE  CONCAT('%',#{province},'%')
+                  </if>
+                  <if test="city != null">
+                     and t.city LIKE  CONCAT('%',#{city},'%')
+                  </if>
+                  <if test="nationwide != null">
+                     and t.nationwide LIKE  CONCAT('%',#{nationwide},'%')
+                  </if>
+                  <if test="userAdress != null">
+                     and t.useradress LIKE  CONCAT('%',#{userAdress},'%')
+                  </if>
+                  <if test="ncountry != null">
+                     and t.ncountry LIKE  CONCAT('%',#{ncountry},'%')
+                  </if>
+                  <if test="nprovince != null">
+                     and t.nprovince LIKE  CONCAT('%',#{nprovince},'%')
+                  </if>
+                  <if test="ncity != null">
+                     and t.ncity LIKE  CONCAT('%',#{ncity},'%')
+                  </if>
+                </when>
+                <otherwise>
+                  <if test="id != null">
+                      and t.id = #{id}
+                  </if>
+                  <if test="nnationwide != null">
+                      and t.nnationwide = #{nnationwide}
+                  </if>
+                  <if test="nuserAdress != null">
+                      and t.nuseradress = #{nuserAdress}
+                  </if>
+                  <if test="userAge != null">
+                      and t.userage = #{userAge}
+                  </if>
+                  <if test="userSex != null">
+                      and t.usersex = #{userSex}
+                  </if>
+                  <if test="userPic != null">
+                      and t.userpic = #{userPic}
+                  </if>
+                  <if test="userAutograph != null">
+                      and t.userautograph = #{userAutograph}
+                  </if>
+                  <if test="score != null">
+                      and t.score = #{score}
+                  </if>
+                  <if test="money != null">
+                      and t.money = #{money}
+                  </if>
+                  <if test="level != null">
+                      and t.level = #{level}
+                  </if>
+                  <if test="qrCode != null">
+                      and t.qrcode = #{qrCode}
+                  </if>
+                  <if test="country != null">
+                      and t.country = #{country}
+                  </if>
+                  <if test="thumbs != null">
+                      and t.thumbs = #{thumbs}
+                  </if>
+                  <if test="tags != null">
+                      and t.tags = #{tags}
+                  </if>
+                  <if test="birthday != null">
+                      and t.birthday = #{birthday}
+                  </if>
+                  <if test="constellation != null">
+                      and t.constellation = #{constellation}
+                  </if>
+                  <if test="job != null">
+                      and t.job = #{job}
+                  </if>
+                  <if test="company != null">
+                      and t.company = #{company}
+                  </if>
+                  <if test="college != null">
+                      and t.college = #{college}
+                  </if>
+                  <if test="userId != null">
+                      and t.userid = #{userId}
+                  </if>
+                  <if test="updateDate != null">
+                      and t.updatedate = #{updateDate}
+                  </if>
+                  <if test="province != null">
+                      and t.province = #{province}
+                  </if>
+                  <if test="city != null">
+                      and t.city = #{city}
+                  </if>
+                  <if test="nationwide != null">
+                      and t.nationwide = #{nationwide}
+                  </if>
+                  <if test="userAdress != null">
+                      and t.useradress = #{userAdress}
+                  </if>
+                  <if test="ncountry != null">
+                      and t.ncountry = #{ncountry}
+                  </if>
+                  <if test="nprovince != null">
+                      and t.nprovince = #{nprovince}
+                  </if>
+                  <if test="ncity != null">
+                      and t.ncity = #{ncity}
+                  </if>
+                </otherwise>
+            </choose>
+
+		</where>
+	</sql>
+
+    <!-- 根据ID来查找一条UserInfo -->
+    <select id="findById" parameterType="java.lang.String"
+			resultType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+		select * from user_info
+		where id = #{id}
+
+	</select>
+
+    <!-- 根据Class来查找UserInfo -->
+	<select id="findByClass" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity"
+			resultType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+		select * from user_info t
+		<include refid="whereCause"></include>
+	</select>
+
+<!-- 根据Class来分页查询查找UserInfo -->
+	<select id="findByClassPaginate" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity"
+			resultType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+		select * from user_info t
+		<include refid="whereCause"></include>
+		order by ${order} ${sort} limit  #{start},#{size}
+	</select>
+
+<!-- 根据Class来分页查询查找UserInfo的分页总数量 -->
+	<select id="findByClassPaginateCount" parameterType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity"
+			resultType="long">
+		select count(1) from user_info t
+		<include refid="whereCause"></include>
+	</select>
+    <!--根据用户编号来查询单条信息记录-->
+    <select id="findUserInfoByUserId" resultType="com.zeal.shiyulin.modules.authority.entity.UserInfoEntity">
+          select * from user_info
+		  where userId = #{userId}
+    </select>
+
+
+</mapper>

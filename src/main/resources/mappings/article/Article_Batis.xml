@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeal.shiyulin.modules.article.dao.ArticleDao">
+    <!--<cache type="com.zeal.shiyulin.common.RedisCache"/>-->
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 只要在对应的mapper配置文件中加入<cache />标签即可-->
+	<!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+	 <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+	<!-- INSERT一条Article  -->
+	<!-- INSERT一条Article  -->
+	<insert id="insert" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity" keyProperty="id" useGeneratedKeys="true">
+    	insert into article
+    	<trim prefix="(" suffix=")" suffixOverrides="," >
+				id,
+			collection,
+			thumbs,
+			dislike,
+			praisenum,
+			praisemoney,
+			comment,
+			userid,
+			isdel,
+			createdate,
+			updatedate,
+			title,
+			subtitle,
+			pic,
+			content,
+			type,
+			label,
+			reader,
+			reprint,
+
+       </trim>
+       <trim prefix="values (" suffix=")" suffixOverrides="," >
+    			#{id},
+			#{collection},
+			#{thumbs},
+			#{dislike},
+			#{praiseNum},
+			#{praiseMoney},
+			#{comment},
+			#{userId},
+			#{isDel},
+			#{createDate},
+			#{updateDate},
+			#{title},
+			#{subtitle},
+			#{pic},
+			#{content},
+			#{type},
+			#{label},
+			#{reader},
+			#{reprint},
+
+    	</trim>
+	</insert>
+
+	<!-- Article UPDATE -->
+	<update id="update" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+    	update article
+    	 <trim prefix="set" suffixOverrides=",">
+    			<if test="collectionChanged==true">
+			  collection=#{collection},
+			</if>
+			<if test="thumbsChanged==true">
+			  thumbs=#{thumbs},
+			</if>
+			<if test="dislikeChanged==true">
+			  dislike=#{dislike},
+			</if>
+			<if test="praiseNumChanged==true">
+			  praisenum=#{praiseNum},
+			</if>
+			<if test="praiseMoneyChanged==true">
+			  praisemoney=#{praiseMoney},
+			</if>
+			<if test="commentChanged==true">
+			  comment=#{comment},
+			</if>
+			<if test="userIdChanged==true">
+			  userid=#{userId},
+			</if>
+			<if test="isDelChanged==true">
+			  isdel=#{isDel},
+			</if>
+			<if test="createDateChanged==true">
+			  createdate=#{createDate},
+			</if>
+			<if test="updateDateChanged==true">
+			  updatedate=#{updateDate},
+			</if>
+			<if test="titleChanged==true">
+			  title=#{title},
+			</if>
+			<if test="subtitleChanged==true">
+			  subtitle=#{subtitle},
+			</if>
+			<if test="picChanged==true">
+			  pic=#{pic},
+			</if>
+			<if test="contentChanged==true">
+			  content=#{content},
+			</if>
+			<if test="typeChanged==true">
+			  type=#{type},
+			</if>
+			<if test="labelChanged==true">
+			  label=#{label},
+			</if>
+			<if test="readerChanged==true">
+			  reader=#{reader},
+			</if>
+			<if test="reprintChanged==true">
+			  reprint=#{reprint},
+			</if>
+
+            </trim>
+    	where id = #{id}
+
+    </update>
+
+	<!-- DELETE一条Article  -->
+	<delete id="delete" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+		delete from article t
+		<include refid="whereCause"></include>
+	</delete>
+    <delete id="deleteById" parameterType="java.lang.String">
+		delete from article
+		where id = #{id}
+
+	</delete>
+
+
+	<sql id="whereCause">
+		<where>
+            <choose>
+                <when test="islike==1">
+                  <if test="id != null">
+                     and t.id LIKE  CONCAT('%',#{id},'%')
+                  </if>
+                  <if test="collection != null">
+                     and t.collection LIKE  CONCAT('%',#{collection},'%')
+                  </if>
+                  <if test="thumbs != null">
+                     and t.thumbs LIKE  CONCAT('%',#{thumbs},'%')
+                  </if>
+                  <if test="dislike != null">
+                     and t.dislike LIKE  CONCAT('%',#{dislike},'%')
+                  </if>
+                  <if test="praiseNum != null">
+                     and t.praisenum LIKE  CONCAT('%',#{praiseNum},'%')
+                  </if>
+                  <if test="praiseMoney != null">
+                     and t.praisemoney LIKE  CONCAT('%',#{praiseMoney},'%')
+                  </if>
+                  <if test="comment != null">
+                     and t.comment LIKE  CONCAT('%',#{comment},'%')
+                  </if>
+                  <if test="userId != null">
+                     and t.userid LIKE  CONCAT('%',#{userId},'%')
+                  </if>
+                  <if test="isDel != null">
+                     and t.isdel LIKE  CONCAT('%',#{isDel},'%')
+                  </if>
+                  <if test="createDate != null">
+                     and t.createdate LIKE  CONCAT('%',#{createDate},'%')
+                  </if>
+                  <if test="updateDate != null">
+                     and t.updatedate LIKE  CONCAT('%',#{updateDate},'%')
+                  </if>
+                  <if test="title != null">
+                     and t.title LIKE  CONCAT('%',#{title},'%')
+                  </if>
+                  <if test="subtitle != null">
+                     and t.subtitle LIKE  CONCAT('%',#{subtitle},'%')
+                  </if>
+                  <if test="pic != null">
+                     and t.pic LIKE  CONCAT('%',#{pic},'%')
+                  </if>
+                  <if test="content != null">
+                     and t.content LIKE  CONCAT('%',#{content},'%')
+                  </if>
+                  <if test="type != null">
+                     and t.type LIKE  CONCAT('%',#{type},'%')
+                  </if>
+                  <if test="label != null">
+                     and t.label LIKE  CONCAT('%',#{label},'%')
+                  </if>
+                  <if test="reader != null">
+                     and t.reader LIKE  CONCAT('%',#{reader},'%')
+                  </if>
+                  <if test="reprint != null">
+                     and t.reprint LIKE  CONCAT('%',#{reprint},'%')
+                  </if>
+                </when>
+                <otherwise>
+                  <if test="id != null">
+                      and t.id = #{id}
+                  </if>
+                  <if test="collection != null">
+                      and t.collection = #{collection}
+                  </if>
+                  <if test="thumbs != null">
+                      and t.thumbs = #{thumbs}
+                  </if>
+                  <if test="dislike != null">
+                      and t.dislike = #{dislike}
+                  </if>
+                  <if test="praiseNum != null">
+                      and t.praisenum = #{praiseNum}
+                  </if>
+                  <if test="praiseMoney != null">
+                      and t.praisemoney = #{praiseMoney}
+                  </if>
+                  <if test="comment != null">
+                      and t.comment = #{comment}
+                  </if>
+                  <if test="userId != null">
+                      and t.userid = #{userId}
+                  </if>
+                  <if test="isDel != null">
+                      and t.isdel = #{isDel}
+                  </if>
+                  <if test="createDate != null">
+                      and t.createdate = #{createDate}
+                  </if>
+                  <if test="updateDate != null">
+                      and t.updatedate = #{updateDate}
+                  </if>
+                  <if test="title != null">
+                      and t.title = #{title}
+                  </if>
+                  <if test="subtitle != null">
+                      and t.subtitle = #{subtitle}
+                  </if>
+                  <if test="pic != null">
+                      and t.pic = #{pic}
+                  </if>
+                  <if test="content != null">
+                      and t.content = #{content}
+                  </if>
+                  <if test="type != null">
+                      and t.type = #{type}
+                  </if>
+                  <if test="label != null">
+                      and t.label = #{label}
+                  </if>
+                  <if test="reader != null">
+                      and t.reader = #{reader}
+                  </if>
+                  <if test="reprint != null">
+                      and t.reprint = #{reprint}
+                  </if>
+                </otherwise>
+            </choose>
+
+		</where>
+	</sql>
+
+    <!-- 根据ID来查找一条Article -->
+    <select id="findById" parameterType="java.lang.String"
+			resultType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+		select * from article
+		where id = #{id}
+
+	</select>
+
+    <!-- 根据Class来查找Article -->
+	<select id="findByClass" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity"
+			resultType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+		select * from article t
+		<include refid="whereCause"></include>
+	</select>
+
+<!-- 根据Class来分页查询查找Article -->
+	<select id="findByClassPaginate" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity"
+			resultType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+		select * from article t
+		<include refid="whereCause"></include>
+		order by ${order} ${sort} limit  #{start},#{size}
+	</select>
+
+<!-- 根据Class来分页查询查找Article的分页总数量 -->
+	<select id="findByClassPaginateCount" parameterType="com.zeal.shiyulin.modules.article.entity.ArticleEntity"
+			resultType="long">
+		select count(1) from article t
+		<include refid="whereCause"></include>
+	</select>
+
+	<!--根据用户编号来查询文章列表-->
+	<select id="findArticleListByUserId" resultType="com.zeal.shiyulin.modules.article.entity.ArticleEntity">
+		select * from article where userId = #{userId}
+	</select>
+
+
+</mapper>

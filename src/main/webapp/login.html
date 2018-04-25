@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <meta name="keywords"
+          content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+    <meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+    <meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+    <meta name="applicable-device" content="pc">
+    <meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+    <title>kownyou-登录</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/modules/register.css">
+</head>
+
+<body data-bind="style:{overflow: is_up_sms() || is_verify() ? 'hidden' : ''}" style="display: block; opacity: 1;">
+<a class="logo" href="javascript:void(0)" data-bind="click: home">kownyou</a>
+<!--<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D);"></div>-->
+<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D);transition: 1.5s"></div>
+<div class="top">
+    <div class="item language-entry" data-bind="event:{mouseenter:openLang,mouseleave:closeLang}">
+        <div>简体中文&nbsp;</div>
+        <ul data-bind="visible: langOpened()" style="display: none;">
+            <li>
+                <a data-bind="click:function(){$root.switchLanguage(1028)}" href="javascript:void(0)">繁體中文</a>
+            </li>
+            <li>
+                <a data-bind="click:function(){$root.switchLanguage(1033)}" href="javascript:void(0)">English</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main-wraper">
+    <div class="upgrade-tips" style="display:none">浏览器版本太低，为保障信息的安全和展现，建议
+        <a href="https://dldir1.qq.com/invc/tt/QQBrowser_Setup_qqzc.exe" target="_blank">升级浏览器</a>
+    </div>
+    <div class="main" style="margin-top: 120px" data-bind="style:{height: is_up_sms() || is_verify() ? '100%' : ''}">
+        <div class="form" autocomplete="off" data-bind="visible: !error() &amp;&amp; !succ()">
+            <div data-bind="visible: isQQ()">
+                <div class="welcome">欢迎登录kownyou</div>
+                <div class="header">写下想对自己说的话</div>
+            </div>
+            <form data-bind="submit: submit" autocomplete="off" >
+                <div class="input-area">
+                    <div class="input-flags">
+                        <div class="input-ok" data-bind="visible: nicknameStatus() === 1" style="display: none;"></div>
+                    </div><label class="input-placeholder" id="nickname-tips" for="nickname" data-bind="visible: nickname().length == 0">输入手机号登录</label>
+                    <div class="input-outer"><input autocomplete="off" id="nickname" name="uname" class="nickname" maxlength="24" data-bind="textInput: nickname, event: {blur:checkDirtyNickname,focus:onNicknameFocus}, css:{error: typeof nicknameStatus() == 'string'}" tabindex="3" type="text"></div>
+                    <div class="error-tips-wrap slideup" data-bind="css:{slideup:nicknameTips().length === 0}">
+                        <div class="error-tips" data-bind="text: nicknameTips, visible: nicknameTips().length" style="display: none;"></div>
+                    </div>
+                </div>
+                <div class="input-area"><label class="input-placeholder" id="password-tips" for="password" data-bind="visible: password().length == 0">密码</label>
+                    <div class="input-flags">
+                        <div class="input-ok" data-bind="visible:passwordStatus() === 1" style="display: none;"></div>
+                        <div href="javascript:void(0)" class="eye close" data-bind="event:{mousedown:function(){$root.show_password(true)},mouseup:function(){$root.show_password(false)},mouseleave:function(){$root.show_password(false)}},visible:password().length &gt; 0,css:{close:!show_password()}" title="长按显示密码" style="display: none;"></div>
+                    </div>
+                    <div class="input-outer">
+                        <div class="password-raw" data-bind="text: password, visible: show_password()" style="display: none;"></div><input autocomplete="off" id="password" name="pword" class="password" maxlength="16" data-bind="textInput: password, event: {blur:checkPassword,focus:onPasswordFocus}, css:{error:typeof passwordStatus() === 'string'}, hasFocus:passwordFocus" tabindex="4" type="password"></div>
+                    <div class="password-tips-group slideup" data-bind="css:{slideup:!passwordFocus()}">
+                        <div class="password-tips ok" data-bind="css:{ok:!passwordHasBlank()}">不能包括空格</div>
+                        <div class="password-tips" data-bind="css:{ok:!passwordBadLength()}">长度为8-16个字符</div>
+                        <div class="password-tips" data-bind="css:{ok:!passwordSimple()}">必须包含字母、数字</div>
+                    </div>
+                    <div class="error-tips-wrap slideup" data-bind="css:{slideup:passwordTips().length === 0}">
+                        <div class="error-tips" data-bind="text: passwordTips, visible: passwordTips().length" style="display: none;"></div>
+                    </div>
+                </div>
+                <div><input id="get_acc" class="submit" value="立即登录" tabindex="8" type="button">
+                    <div class="error-tips-wrap slideup" data-bind="css:{slideup:getNumTips().length === 0}">
+                        <div class="error-tips" data-bind="text: getNumTips, visible: getNumTips().length" style="display: none;"></div>
+                    </div>
+                </div>
+                <a class="tips" href="https://www.kownyou.com/register.html">没有账号，点此注册</a>
+            </form>
+        </div>
+        <div class="footer">Copyright <span>©</span> 2016-
+            <script>
+                document.write((new Date).getFullYear())
+            </script>Zeal All Rights Reserved</div>
+        <div class="sms-up-dialog" style="display:none" data-bind="visible: is_up_sms()">
+            <div class="close" data-bind="click:function(){$root.is_up_sms(false)}"></div>
+            <div class="please">请发送短信帮助我们确认你的身份</div>
+            <div><span class="verb">编辑短信：</span> <span class="target">1</span></div>
+            <div><span class="verb">发送至：</span> <span data-bind="text: up_sms_port_string" class="target">1069 0700 511</span> <span class="error-msg" data-bind="visible: up_port_updated()" style="display: none;">(接收号码已更新)</span></div>
+            <div class="price">除运营商收取的标准短信费用外，无额外费用。</div><button data-bind="click: submit" class="submit" id="has_up_sms">我已发送短信，下一步</button>
+            <div class="error-msg" data-bind="visible: up_error_msg().length"><span data-bind="text: up_error_msg">短信验证失败，请重新发送短信验证</span> <span data-bind="visible: up_error_count() &gt; 2" style="display: none;">或<a href="#" onclick="app.switchUpPort()">更换接收号码</a></span></div>
+        </div>
+        <div class="verify-dialog" id="verify-dialog" style="display:none" data-bind="visible: is_verify()">
+            <div class="close" data-bind="click:closeVerify(), visible: can_close_verify()"></div>
+            <div id="verify-content"></div>
+        </div>
+    </div>
+</div>
+<div class="sms-up-background" style="display:none" data-bind="visible: is_up_sms() || is_verify()"></div>
+<!--<script src="js/libs-233df6bcaf.js"></script>-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/lazyload/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="/js/public.js"></script>
+<script type="text/javascript">
+    window.lang = 2052;
+    $(document).ready(function () {
+        $("img").addClass("lazy");
+        $(function() {
+            $("img.lazy").lazyload({effect: "fadeIn"});
+        });
+        var pics = ["https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D",
+            "https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D",
+            "https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D",
+            "https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D",
+            "https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D"
+        ]
+        var leng = pics.length;
+        var cur = 0;
+        var a=setInterval(function () {
+            cur++;
+            var i=cur%leng;
+            turnImgs(leng,i,pics);
+        },6000);
+        $('#nickname').on('focus',function () {
+            $(this).removeClass('error');
+            $(this).parent().next().addClass('slideup');
+            $('#nickname-tips').hide();
+        })
+        $('#nickname').on('blur',function () {
+            //检查输入昵称是否合法
+            var nickName = $(this).val().trim();
+            if(nickName){
+                $(this).parent().prev().prev().find('.input-ok').show();
+
+            }else {
+                $('#nickname-tips').show();
+                $(this).parent().prev().prev().find('.input-ok').hide();
+                $(this).addClass('error');
+                $(this).parent().next().removeClass('slideup');
+                $(this).parent().next().find('.error-tips').text('登录账号不能为空!');
+                $(this).parent().next().find('.error-tips').show();
+            }
+        })
+        $('#password').on('focus',function () {
+            $(this).removeClass('error');
+//            $(this).parent().next().removeClass('slideup');
+            $(this).parent().next().next().addClass('slideup');
+            $('#password-tips').hide();
+        })
+        $('#password').on('blur',function () {
+            //检查输入密码是否合法
+            var password = $(this).val().trim();
+            if(password){
+                $(this).parent().prev().find('.eye').show();
+                if($('.password-tips-group .ok').length==3){
+                    $(this).parent().prev().find('.input-ok').show();
+                    $(this).parent().next().addClass('slideup');
+                }else {
+                    $(this).parent().prev().find('.input-ok').hide();
+                    if(!$('.password-tips-group .password-tips').eq(0).hasClass('ok')){
+                        $(this).parent().prev().find('.input-ok').hide();
+                        $(this).addClass('error');
+                        $(this).parent().next().addClass('slideup');
+                        $(this).parent().next().next().removeClass('slideup');
+                        $(this).parent().next().next().find('.error-tips').text('密码不能包含空格!');
+                        $(this).parent().next().next().find('.error-tips').show();
+                    }
+                }
+            }else {
+                $('#password-tips').show();
+                $(this).parent().prev().find('.input-ok').hide();
+                $(this).addClass('error');
+                $(this).parent().next().addClass('slideup');
+                $(this).parent().next().next().removeClass('slideup');
+                $(this).parent().next().next().find('.error-tips').text('密码不能为空!');
+                $(this).parent().next().next().find('.error-tips').show();
+            }
+        })
+        $('#password').bind(' input propertychange ',function(){
+            var password = $(this).val();
+            if(password){
+                $(this).parent().prev().find('.eye').show();
+                if(password.indexOf(' ')>=0){
+                    $('.password-tips-group .password-tips').eq(0).removeClass('ok');
+                }else {
+                    $('.password-tips-group .password-tips').eq(0).addClass('ok');
+                }
+                if(password.length>=8&&password.length<=16){
+                    $('.password-tips-group .password-tips').eq(1).addClass('ok');
+                }else {
+                    $('.password-tips-group .password-tips').eq(1).removeClass('ok');
+                }
+                if(CheckPassWord(password)){
+                    $('.password-tips-group .password-tips').eq(2).addClass('ok');
+                }else {
+                    $('.password-tips-group .password-tips').eq(2).removeClass('ok');
+                }
+            }
+        } )
+        $('.eye').on('mousedown',function () {
+            $(this).removeClass('close');
+            $('#password').attr('type','text');
+        })
+        $('.eye').on('mouseup',function () {
+            $(this).addClass('close');
+            $('#password').attr('type','password');
+        })
+        $('.eye').on('mouseleave',function () {
+            $(this).attr('title','长按显示密码');
+        })
+
+        //回车提交事件
+        $("body").keydown(function() {
+            if (event.keyCode == "13") {//keyCode=13是回车键
+                $('#get_acc').click();
+            }
+        });
+
+        $('#get_acc').on('click',function () {
+            var username=$('#nickname').val().trim();
+            var password=$('#password').val().trim();
+            if(check()) {
+                $.ajax({
+                    url: 'user/userLogin',
+                    type: 'post',
+                    async: true,
+                    data: {"uname": username,"pword":password},
+                    success:function (data) {
+                        if(data=='yes'){
+                            if(GetQueryString('redirect')){
+                                window.location.href=decodeURIComponent(GetQueryString('redirect'));
+                            }
+                        }else {
+                            $('#password').parent().next().next().removeClass('slideup');
+                            $('#password').parent().next().next().find('.error-tips').text(data);
+                            $('#password').parent().next().next().find('.error-tips').show();
+                        }
+                    }
+                })
+            }
+        })
+
+    })
+
+    function CheckPassWord(password) {//必须为字母加数字且长度不小于8位
+        var str = password;
+        if (str == null || str.length <8) {
+            return false;
+        }
+        var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+        if (!reg1.test(str)) {
+            return false;
+        }
+        var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+        if (reg.test(str)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function checkPhone(phone){
+        if(!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
+            return false;
+        }
+        return true;
+    }
+    function check() {
+        if($('.error-tips-wrap').not('.slideup').length>0){
+            return false;
+        }else {
+            return true;
+        }
+
+    }
+    function turnImgs(leng,cur,pics) {
+        $('.side.show').css('background-image','url('+pics[cur]+')')
+    }
+</script>
+<!--<script src="js/index-d56f15b748.js"></script>-->
+</body>
+
+</html>

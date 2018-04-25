@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <meta name="keywords"
+          content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+    <meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+    <meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+    <meta name="applicable-device" content="pc">
+    <meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+    <title>kownyou-打造最懂你的社交平台！</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script type="text/javascript">
+        var _speedMark = new Date();
+    </script>
+
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- Switchery-->
+    <link href="/css/plugins/switchery/switchery.css" rel="stylesheet">
+    <link href="/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <!--<link href="js/plugins/bootstrap-fileupload/css/bootstrap-fileupload.min.css" rel="stylesheet">-->
+    <link href="/css/plugins/cropper/cropper.min.css" rel="stylesheet">
+    <link href="/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/modules/list.css"/>
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+    <!--<script type="text/javascript">SPD.mark(31); // CSS加载完毕</script>-->
+</head>
+
+<body>
+<!-- 头部 S -->
+
+<script>
+    if (window.ActiveXObject || window.msIsStaticHTML) {
+        var ie = 6;
+
+        if (!!window.XMLHttpRequest) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("MSIE 7.0") != -1) {
+            ie = 7
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/4.0") != -1) {
+            ie = 8
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/5.0") != -1) {
+            ie = 9
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/6.0") != -1) {
+            ie = 10
+        }
+        ;
+        if (navigator.userAgent.indexOf("Trident/7.0") != -1 || "undefined" == typeof attachEvent) {
+            ie = 11
+        }
+        ;
+        if (ie < 8) {
+            document.write("<div class=\"popup_top\"  id=\"zoom_warn\">使用更高版本的 <a href=\"http://www.google.cn/intl/zh-CN/chrome/browser/desktop/\" target=\"_blank\">Chrome</a> 或 <a href=\"https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads\" target=\"_blank\">Internet Explorer</a>，体验更精彩</div>");
+        }
+    }</script>
+<div class="mod_header">
+    <div class="section_inner">
+        <h1 class="qqmusic_title"><a href="//www.kownyou.com"><img srcset="/img/logo/logo.png?nowebp=1 2x"
+                                                                   src="/img/logo/logo.png?nowebp=1" alt="懂你网"
+                                                                   class="kownyou_logo"/></a><i>懂你网</i></h1>
+        <!-- 导航 S -->
+        <ul class="mod_top_nav" role="nav">
+            <li class="top_nav__item">
+                <a href="//www.kownyou.com" class="top_nav__link top_nav__link--current" title="首页">首页</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="猜你喜欢">猜你喜欢</a>
+            </li>
+            <li class="top_nav__item">
+                <a href="#" class="top_nav__link" title="APP" rel="noopener" target="_blank">APP</a>
+            </li>
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vip/daren_recruit/apply.html" data-stat="y_new.top.darenrecruit" class="top_nav__link js_nav_click" title="VIP" rel="noopener" target="_blank">音乐号</a>-->
+            <!--</li>-->
+            <!--<li class="top_nav__item">-->
+            <!--<a href="//y.qq.com/vipportal/" class="top_nav__link" title="VIP" rel="noopener" target="_blank">VIP</a>-->
+            <!--</li>-->
+        </ul>
+        <!-- 导航 E -->
+        <div class="mod_top_search" role="search">
+            <div class="mod_search_input">
+                <input class="search_input__input" aria-label="请输入搜索内容" type="text" placeholder="" accesskey="s"/>
+                <button class="search_input__btn"><i class="icon_search"></i><span class="icon_txt">搜索</span></button>
+            </div>
+        </div>
+        <div class="header__opt">
+
+
+            <!-- 未登录 -->
+            @DIRECTIVE SAFE_OUTPUT_OPEN;
+            <span class="mod_top_login">
+		    <a class="top_login__link js_logined" href="/profile.html" ${session.user==null ?'style="display:none;"':''}>
+                        <img ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                             class="top_login__cover" alt=""/>
+                </a>
+                <a class="top_login__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">
+                        登录
+                </a>
+
+                <a class="login__link header__link js_login" ${session.user==null ?'':'hidden="hidden"'} data-stat="y_new.top.login" href="javascript:;">登录</a>
+                </span>
+            <!-- 用户信息 -->
+            <div class="popup_user">
+                <div class="popup_user_data"><a href="/profile.html"
+                                                class="popup_user_data__cover_link"
+                                                onclick="setStatCookie&amp;&amp;setStatCookie();"><img
+                        ${session.userInfo.userPic==null ?'': 'src='+session.userInfo.userPic}
+                    class="popup_user_data__cover js_user_img"><img
+                            src="//y.gtimg.cn/mediastyle/yqq/img/login_qq.png?max_age=2592000"
+                            class="popup_user_data__icon"></a>
+                    <div class="popup_user_data__name"><a
+                            href="#"
+                            onclick="setStatCookie&amp;&amp;setStatCookie();" class="">${session.user.userName!'#'}</a>
+                    </div>
+                    <div class="popup_user_data__lv"><a href="#"
+                                                        class="js_vip_jump" data-stat="y_new.top.pop.vip_icon"
+                                                        rel="noopener" target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/svip_g.png" alt="绿钻"
+                            class="popup_user_data__lv_icon"></a><a href="#"
+                                                                    class="js_vip_jump"
+                                                                    data-stat="y_new.top.pop.vip_icon" rel="noopener"
+                                                                    target="_blank"><img
+                            src="//y.gtimg.cn/music/icon/v1/pc/sui_g.png?max_age=2592000" alt="付费音乐包"
+                            class="popup_user_data__lv_icon"></a></div>
+                    <a href="/logout" class="popup_user_data__out js_logout" data-stat="y_new.top.pop.logout">[退出登录]</a>
+                </div>
+                <ul class="mod_user_statistic">
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.gedan" data-tab="create"><strong
+                            class="user_statistic__number js_create">6</strong><span
+                            class="user_statistic__tit">收藏</span></a></li>
+                    <li class="user_statistic__item"><a href="javascript:;" class="js_profile_tab"
+                                                        data-stat="y_new.top.pop.focus" data-tab="focus"><strong
+                            class="user_statistic__number js_focus">0</strong><span
+                            class="user_statistic__tit">关注</span></a></li>
+                    <li class="user_statistic__item user_statistic__item--last"><a href="javascript:;"
+                                                                                   class="js_profile_tab"
+                                                                                   data-stat="y_new.top.pop.fans"
+                                                                                   data-tab="fans"><strong
+                            class="user_statistic__number js_fans">0</strong><span class="user_statistic__tit">粉丝</span></a>
+                    </li>
+                </ul>
+                <div class="popup_user__toolbar"><a class="mod_btn_green popup_user__btn1 js_openvip"
+                                                    href="/release/article" target="_blank">发表文章</a>
+                </div>
+            </div>
+            @DIRECTIVE SAFE_OUTPUT_CLOSE;
+        </div>
+    </div>
+    <!-- 头部 E -->
+
+
+    <div class="wrapper wrapper-content ">
+        <div class="panel ">
+
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <h2 class="title text-warning">发布文章</h2>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form id="titleForm" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h4 class="h4 text-info">填写文章信息</h4>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="form_basic.html#">选项1</a>
+                                            </li>
+                                            <li><a href="form_basic.html#">选项2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label ">标 题：</label>
+
+                                        <div class="col-sm-8">
+                                            <input id="title"  name="title"  type="text" placeholder="请填写标题" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="error" id="title-error" for="title"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label ">副标题:</label>
+
+                                        <div class="col-sm-8">
+                                            <input id="title2"  name="title2" type="text" placeholder="请填写副标题" class="form-control valid">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="error" id="title2-error" for="title2"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label ">类 型：</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="culture" name="radio" type="radio" value="文化">
+                                                <label for="culture">
+                                                    文化
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="review" name="radio" type="radio" value="时评">
+                                                <label for="review">
+                                                    时评
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="military" name="radio" type="radio" value="军事">
+                                                <label for="military">
+                                                    军事
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="sports" name="radio" type="radio" value="体育">
+                                                <label for="sports">
+                                                    体育
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="satin" name="radio" type="radio" value="段子">
+                                                <label for="satin">
+                                                    段子
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="beauty" name="radio" type="radio" value="美女">
+                                                <label for="beauty">
+                                                    美女
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="healthy" name="radio" type="radio" value="健康">
+                                                <label for="healthy">
+                                                    健康
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="food" name="radio" type="radio" value="美食">
+                                                <label for="food">
+                                                    美食
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="constellation" name="radio" type="radio" value="星座">
+                                                <label for="constellation">
+                                                    星座
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="comic" name="radio" type="radio" value="动漫">
+                                                <label for="comic">
+                                                    动漫
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="story" name="radio" type="radio" value="故事">
+                                                <label for="story">
+                                                    故事
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="emotion" name="radio" type="radio" value="情感">
+                                                <label for="emotion">
+                                                    情感
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="science" name="radio" type="radio" value="科学">
+                                                <label for="science">
+                                                    科学
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="film" name="radio" type="radio" value="电影">
+                                                <label for="film">
+                                                    电影
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="news" name="radio" type="radio" value="新闻">
+                                                <label for="news">
+                                                    新闻
+                                                </label>
+                                            </div>
+                                            <div class="radio radio-inline radio-warning">
+                                                <input id="it" name="radio" type="radio" value="IT">
+                                                <label for="it">
+                                                    IT
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="error" id="radio-error" for="radio"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label ">标 签：</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="funny" name="checkbox" type="checkbox" value="搞笑">
+                                                <label for="funny">
+                                                    搞笑
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="note" name="checkbox" type="checkbox" value="搞笑">
+                                                <label for="note">
+                                                    笔记
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="oldDriver" name="checkbox" type="checkbox" value="老司机">
+                                                <label for="oldDriver">
+                                                    老司机
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="connotation" name="checkbox" type="checkbox" value="内涵">
+                                                <label for="connotation">
+                                                    内涵
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="comment" name="checkbox" type="checkbox" value="点评">
+                                                <label for="comment">
+                                                    点评
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="quadraticElement" name="checkbox" type="checkbox" value="二次元">
+                                                <label for="quadraticElement">
+                                                    二次元
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="adorable" name="checkbox" type="checkbox" value="萌物">
+                                                <label for="adorable">
+                                                    萌物
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="game" name="checkbox" type="checkbox" value="游戏">
+                                                <label for="game">
+                                                    游戏
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-inline checkbox-warning">
+                                                <input id="mei" name="checkbox" type="checkbox" value="美女">
+                                                <label for="mei">
+                                                    美女
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="error" id="checkbox-error" for="checkbox"></label>
+                                        </div>
+                                    </div>
+
+                                    <!--<div class="form-group last">-->
+                                    <!--<label class="control-label col-md-1 ">封 面：</label>-->
+                                    <!--<div class="col-md-11">-->
+                                    <!--<div class="fileupload fileupload-new" data-provides="fileupload">-->
+                                    <!--<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">-->
+                                    <!--<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />-->
+                                    <!--</div>-->
+                                    <!--<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>-->
+                                    <!--<div>-->
+                                    <!--<span class="btn btn-default btn-file">-->
+                                    <!--<span class="fileupload-new"><i class="fa fa-paper-clip"></i> 本地上传</span>-->
+                                    <!--<span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>-->
+                                    <!--<input type="file" class="default" />-->
+                                    <!--</span>-->
+                                    <!--<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<br/>-->
+                                    <!--<span class="label label-danger ">NOTE!</span>-->
+                                    <!--<span>-->
+                                    <!--Attached image thumbnail is-->
+                                    <!--supported in Latest Firefox, Chrome, Opera,-->
+                                    <!--Safari and Internet Explorer 10 only-->
+                                    <!--</span>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title  back-change">
+                                    <h4 class="h4 text-info">选择封面 </h4>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#">选项 01</a>
+                                            </li>
+                                            <li><a href="#">选项 02</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <p>
+                                        裁剪你的文章封面图片
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image-crop">
+                                                <img src="/img/login-background.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>图片预览：</h4>
+                                            <div class="img-preview img-preview-sm"></div>
+                                            <h4>说明：</h4>
+                                            <p>
+                                                你可以选择新图片上传，然后预览裁剪后的图片
+                                            </p>
+                                            <div class="btn-group">
+                                                <label title="上传图片" for="inputImage" class="btn btn-primary">
+                                                    <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="inputImage" class="hide"> 上传新图片
+                                                </label>
+                                                <label title="下载图片" id="download" class="btn btn-primary">全屏预览</label>
+                                            </div>
+                                            <h4>其他操作：</h4>
+                                            <div class="btn-group">
+                                                <button class="btn btn-white" id="zoomIn" type="button">放大</button>
+                                                <button class="btn btn-white" id="zoomOut" type="button">缩小</button>
+                                                <button class="btn btn-white" id="rotateLeft" type="button">左旋转</button>
+                                                <button class="btn btn-white" id="rotateRight" type="button">右旋转</button>
+                                                <button class="btn btn-warning" id="setDrag" type="button">裁剪</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h4 class="h4 text-info">编写文章主体</h4>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_editors.html#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="form_editors.html#">选项1</a>
+                                            </li>
+                                            <li><a href="form_editors.html#">选项2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content no-padding">
+
+                                    <div class="summernote ">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-sm-offset-1">
+                            <button onclick="save()" type="button" class="btn btn-lg btn-block btn-outline btn-success  btn-rounded">预览文章</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button onclick="edit()" type="button" class="btn btn-lg btn-block btn-outline btn-success  btn-rounded">重 填</button>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <button  type="submit" class="btn btn-lg btn-block btn-outline btn-primary  btn-rounded">保 存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer" role="footer">
+        <div class="section_inner">
+            <div class="footer_info">
+                <div class="footer_copyright">
+
+                    <p>
+                        <a href="#" rel="noopener nofollow" target="_blank" title="关于kownyou">关于kownyou</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="About Tencent">About kownyou</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="服务条款">服务条款</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="用户服务协议">用户服务协议</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="隐私政策">隐私政策</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="广告服务">广告服务</a> |
+                        <a href="#" rel="noopener nofollow" target="_blank" title="网站导航">网站导航</a>
+                    </p>
+                    <p>Copyright &copy; 2016 -
+                        <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                        Zeal. <a target="_blank" href="#" rel="noopener nofollow" title="All Rights Reserved.">All Rights
+                            Reserved.</a>
+                    </p>
+                    <p>www.kownyou.com <a target="_blank" href="#" rel="noopener nofollow" title="版权所有">版权所有</a> <a
+                            target="_blank" href="#" rel="noopener nofollow" title="鄂ICP备17008798号">鄂ICP备17008798号</a> <a
+                            target="_blank" href="#" rel="noopener nofollow" title="站长邮箱">站长邮箱</a> <a target="_blank"
+                                                                                                      href="#"
+                                                                                                      rel="noopener nofollow"
+                                                                                                      title="zhangleifor\@163.com">zhangleifor\@163.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+<!-- 自定义js -->
+<!--<script src="/js/content.js?v=1.0.0"></script>-->
+
+<!-- Sweet alert -->
+<script src="/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- Switchery -->
+<script src="/js/plugins/switchery/switchery.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="/js/plugins/summernote/summernote.js"></script>
+<script src="/js/plugins/summernote/summernote-zh-CN.js"></script>
+
+<!-- jQuery Validation plugin javascript-->
+<script src="/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="/js/plugins/validate/messages_zh.min.js"></script>
+
+<!--fileupload-->
+<!--<script src="js/plugins/bootstrap-fileupload/js/bootstrap-fileupload.min.js"></script>-->
+
+<!-- Image cropper -->
+<script src="/js/plugins/cropper/cropper.min.js"></script>
+
+<!-- Bootstrap table -->
+<script src="/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+<script src="/js/public.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var $image = $(".image-crop > img")
+        var croper= $($image).cropper({
+//            aspectRatio: 1.618,
+            aspectRatio: 1920/1080,
+            preview: ".img-preview",
+            done: function (data) {
+                // 输出结果
+            }
+        });
+
+        var $inputImage = $("#inputImage");
+        if (window.FileReader) {
+            $inputImage.change(function () {
+                var fileReader = new FileReader(),
+                    files = this.files,
+                    file;
+
+                if (!files.length) {
+                    return;
+                }
+
+                file = files[0];
+
+                if (/^image\/\w+$/.test(file.type)) {
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = function () {
+                        $inputImage.val("");
+                        $image.cropper("reset", true).cropper("replace", this.result);
+                    };
+                } else {
+                    showMessage("请选择图片文件");
+                }
+            });
+        } else {
+            $inputImage.addClass("hide");
+        }
+
+        $("#download").click(function () {
+            window.open($image.cropper("getDataURL"));
+        });
+
+        $("#zoomIn").click(function () {
+            $image.cropper("zoom", 0.1);
+        });
+
+        $("#zoomOut").click(function () {
+            $image.cropper("zoom", -0.1);
+        });
+
+        $("#rotateLeft").click(function () {
+            $image.cropper("rotate", 45);
+        });
+
+        $("#rotateRight").click(function () {
+            $image.cropper("rotate", -45);
+        });
+
+        $("#setDrag").click(function () {
+            $image.cropper("setDragMode", "crop");
+        });
+
+        var HelloButton = function (context) {
+            var ui = $.summernote.ui;
+
+            // create button
+            var button = ui.button({
+                contents: '<i class="fa fa-child"/> Hello',
+                tooltip: 'hello',
+                click: function () {
+                    // invoke insertText method with 'hello' on editor module.
+                    context.invoke('editor.insertText', 'hello');
+                }
+            });
+
+            return button.render();   // return button as jquery object
+        }
+        var $summernote= $('.summernote').summernote({
+            height: 600,
+            minHeight:600,
+            lang: 'zh-CN',
+            dialogsInBody: true,  //模式对话框中使用summernote
+            dialogsFade: true, //模态框淡入淡出效果
+            callbacks: {
+                onImageUpload: function (files) { //the onImageUpload API
+                    console.log('image upload:', files);
+                    for(var i=0; i < files.length; i++) {
+                        sendFile(files[i]);
+                    }
+                }
+            }
+        });
+
+        var icon = "<i class='fa fa-times-circle'></i> ";
+        $("#titleForm").validate({
+            debug:true,
+            rules: {
+                title: "required",
+                title2: "required",
+                radio: {
+                    required: true
+
+                },
+                checkbox: {
+                    required: true,
+                }
+            },
+            messages: {
+                title: {
+                    required: icon + "请输入标题",
+                },
+                title2: icon + "请输入副标题",
+                radio: {
+                    required: icon + "请选择类型"
+                },
+                checkbox: {
+                    required: icon + "请选择标签"
+                }
+            },
+//            showErrors:function (xhr) {
+//            },
+            invalidHandler:function () {
+                return false;
+            },
+            submitHandler:function () {
+                //表单提交处理
+                var title=$('#title').val().trim();
+                var subtitle=$('#title2').val().trim();
+                var type=$('input:radio:checked').val().trim();
+                var labels=new Array();
+                $('input[name="checkbox"]:checked').each(function (k, v) {
+                    labels.push($(this).val().trim());
+                })
+                var label=labels.join(",");
+                var file=$('.img-preview img').attr('src');
+                if(file.indexOf('data')==0){
+                    file=convertBase64UrlToBlob(file);
+                }
+                var imgCrop=$($image).cropper('getData');
+                //var content=$('.summernote').summernote('code');
+                var content=$('.summernote').summernote('code');
+                // 获取上传文件，放到 formData对象里面
+                var formData = new FormData();
+                formData.append("title",title);
+                formData.append("subtitle",subtitle);
+                formData.append("type",type);
+                formData.append("label",label);
+                formData.append("file",file);
+                formData.append("content",content);
+                formData.append("x",imgCrop.x.toFixed(0));
+                formData.append("y",imgCrop.y.toFixed(0));
+                formData.append("w",imgCrop.width.toFixed(0));
+                formData.append("h",imgCrop.height.toFixed(0));
+                swal({
+                        title: "操作提示",
+                        text: "确定要保存并提交吗？",
+                        type: "info",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                    },
+                    function(){
+                        $.ajax({
+                            type: "POST",
+                            url: getRootPath_web()+"/article/saveArticle",
+                            data: formData ,　　//这里上传的数据使用了formData 对象
+                            processData : false,
+                            //必须false才会自动加上正确的Content-Type
+                            contentType : false ,
+
+                            //这里我们先拿到jQuery产生的 XMLHttpRequest对象，为其增加 progress 事件绑定，然后再返回交给ajax使用
+                            xhr: function(){
+                                var xhr = $.ajaxSettings.xhr();
+                                if(onprogress && xhr.upload) {
+                                    xhr.upload.addEventListener("progress" , onprogress, false);
+                                    return xhr;
+                                }
+                            },
+                            success:function (data) {
+                                if(data){
+                                    swal({
+                                            title: "操作提示",
+                                            text: "保存成功！",
+                                            type: "success",
+                                            showCancelButton: true,
+                                            confirmButtonText: "立即预览！",
+                                            cancelButtonText: "再来一篇！",
+                                            closeOnConfirm: false,
+                                            closeOnCancel: false
+                                        },
+                                        function(isConfirm){
+                                            if (isConfirm) {
+                                                window.location.href=getRootPath_web()+"/article/"+data;
+                                            } else {
+                                                window.location.reload();
+                                            }
+                                        });
+                                }
+                            },
+                            error:function (data) {
+                                swal("操作提示", data.responseJSON.exception,"error");
+                            }
+                        });
+                    });
+
+            }
+        })
+
+    });
+
+    /**
+     * 侦查附件上传情况 ,这个方法大概0.05-0.1秒执行一次
+     */
+    function onprogress(evt){
+        var loaded = evt.loaded;     //已经上传大小情况
+        var tot = evt.total;      //附件总大小
+        var per = Math.floor(100*loaded/tot);  //已经上传的百分比
+        $("#son").html( per +"%" );
+        $("#son").css("width" , per +"%");
+    }
+    var edit = function () {
+        $(".summernote").addClass("no-padding");
+        $('.summernote').summernote({
+            lang: 'zh-CN',
+            focus: true
+        });
+    };
+    var save = function () {
+        $(".summernote").removeClass("no-padding");
+        var aHTML = $('.summernote').summernote('code'); //save HTML If you need(aHTML: array).
+        $('.summernote').summernote('destroy');
+    };
+
+
+
+    /**
+     * 上传图片
+     * \@param file
+     * \@param $summernote
+     * \@param $editable
+     */
+    function sendFile(file) {
+        if (file.type.includes('image')) {
+            data = new FormData();
+            data.append("file", file);
+            console.log(data);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: getRootPath_web() + "/uploadImg",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //$('.summernote').summernote('insertImage', data); // the insertImage API
+                    $(".summernote").summernote('insertImage', data);
+                }
+            });
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //初始化组件
+        //initSwitch();
+        var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#9370db',
+            size: 'small'
+        });
+        $('#modModal input[name="statu"]').on('change',function () {
+
+        })
+        //初始化表格
+        $('#exampleTableEvents').bootstrapTable({
+            url: "article/findByClassWithPaginate",  //这个接口需要处理bootstrap table传递的固定参数
+            method: 'get',    //请求方法
+            classes:'table table-hover table-no-bordered',  //设置表格无边框
+            idField:'userId', //指定主键列
+            //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            strictSearch: true,   //是否全局搜索
+            searchOnEnterKey: true,   //是否按回车键搜索
+            //contentType: "application/x-www-form-urlencoded",  如果是post请求则需要显式的申明
+            queryParamsType:'', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort   设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+            //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+            pagination: true, //是否显示分页（*）
+            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+            sortable: false,      //是否启用排序
+            sortOrder: "asc",     //排序方式
+            pageNumber:1,      //初始化加载第一页，默认第一页
+            pageSize: 10,      //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+            showRefresh: true,   //是否显示刷新按钮
+            showToggle: true,
+            showColumns: true,  //是否显示所有的列
+            minimumCountColumns: 2,    //最少允许的列数
+            //clickToSelect: true,    //是否启用点击选中行
+            iconSize: 'outline',
+            toolbar: '#exampleTableEventsToolbar', //工具按钮用哪个容器
+            striped: true,      //是否显示行间隔色
+            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            icons: {
+                refresh: 'glyphicon-repeat',
+                toggle: 'glyphicon-list-alt',
+                columns: 'glyphicon-list'
+            }
+        });
+        //表格  - 操作 - 事件
+        window.actionEvents = {
+            'click .detail': function(e, value, row, index) {
+                //详情操作
+                //alert("详情");
+                window.location.href="article/detail/"+row.id;
+            },
+            'click .mod': function(e, value, row, index) {
+                window.location.href="article/edit/"+row.id;
+            },
+            'click .delete' : function(e, value, row, index) {
+                //删除操作
+                var id = row.id;
+                swal({
+                    title: "您确定要执行此操作吗？",
+                    text: "删除后将无法恢复，请谨慎操作！",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                    closeOnConfirm: false
+                }, function () {
+                    $.ajax({
+                        url: getRootPath_web()+'/article/deleteById/'+id,
+                        type: 'post',
+                        success:function (msg) {
+                            swal.close();
+                            window.location.reload();//刷新当前页面.
+                        }
+                    });
+                });
+                //alert("删除");
+            }
+        }
+        $('#modModal .btn-success').on('click',function () {
+            saveRoleInfo(switchery);
+        })
+    });
+
+    /**
+     * 修改角色信息保存事件
+     */
+    function saveRoleInfo(switchery) {
+        var id= $('#modModal input[name="id"]').val();
+        var roleId=$('#modModal input[name="roleid"]').val();
+        var roleName=$('#modModal input[name="rolename"]').val();
+        var roleDescribe=$('#modModal textarea[name="roledescribe"]').val();
+        var statu;
+        if(switchery.isChecked()){
+            statu='1';
+        }else {
+            statu='0';
+        }
+        var data=JSON.stringify({"id":id,"roleId":roleId,"roleName":roleName,"roleDescribe":roleDescribe,"roleStatu":statu});
+        $.ajax({
+            url:getRootPath_web()+'/role/update',
+            type:'post',
+            contentType:'application/json',
+            data:data,
+            success:function (data) {
+                if(data!=null){
+                    swal({
+                            title: "操作提示",
+                            text: "修改成功！",
+                            type: "success"
+                        },
+                        function(){
+                            swal.close();
+                            $('#modModal').modal('toggle');
+                            window.location.reload();//刷新当前页面.
+                        });
+                }
+            }
+        });
+    }
+
+    function rolestatuFormatter(value, row, index){
+        return value=="1"?"已启用":"未启用";
+    }
+</script>
+
+
+</body>
+</html>
+<!DOCTYPE html>
+

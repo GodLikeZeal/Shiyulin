@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Language" content="zh-cn"/>
+    <meta name="keywords"
+          content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+    <meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+    <meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+    <meta name="applicable-device" content="pc">
+    <meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+    <title>kownyou-注册</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/modules/register.css">
+</head>
+
+<body data-bind="style:{overflow: is_up_sms() || is_verify() ? 'hidden' : ''}" style="display: block; opacity: 1;">
+<a class="logo" href="javascript:void(0)" data-bind="click: home">kownyou</a>
+<!--<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D);"></div>-->
+<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D);"></div>-->
+<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D);"></div>
+<div class="top">
+    <div class="item language-entry" data-bind="event:{mouseenter:openLang,mouseleave:closeLang}">
+        <div>简体中文&nbsp;</div>
+        <ul data-bind="visible: langOpened()" style="display: none;">
+            <li>
+                <a data-bind="click:function(){$root.switchLanguage(1028)}" href="javascript:void(0)">繁體中文</a>
+            </li>
+            <li>
+                <a data-bind="click:function(){$root.switchLanguage(1033)}" href="javascript:void(0)">English</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main-wraper">
+    <div class="upgrade-tips" style="display:none">浏览器版本太低，为保障信息的安全和展现，建议
+        <a href="https://dldir1.qq.com/invc/tt/QQBrowser_Setup_qqzc.exe" target="_blank">升级浏览器</a>
+    </div>
+    <div class="main" data-bind="style:{height: is_up_sms() || is_verify() ? '100%' : ''}">
+        <div class="form" autocomplete="off" data-bind="visible: !error() &amp;&amp; !succ()">
+            <div data-bind="visible: isQQ()">
+                <div class="welcome">注册kownyou成功</div>
+                <div class="header">腰间胸剑长三尺  君家严慈知不知</div>
+            </div>
+            <form data-bind="submit: submit" autocomplete="off" method="post"  action="http://www.kownyou.com">
+                <div class="input-area">
+                    <p class="header">kownyou号: ${userEntity.userId}</p>
+                    <p class="header">昵称: ${userEntity.userName}</p>
+                    <p  class="header">您已经可以使用手机号或者kownyou号登录系统了</p>
+                </div>
+                <div><input id="get_acc" class="submit" value="前往主页" tabindex="8" type="submit">
+                    <div class="error-tips-wrap slideup" data-bind="css:{slideup:getNumTips().length === 0}">
+                        <div class="error-tips" data-bind="text: getNumTips, visible: getNumTips().length" style="display: none;"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="footer">Copyright <span>©</span> 2016-
+            <script>
+                document.write((new Date).getFullYear())
+            </script>Zeal All Rights Reserved</div>
+        <div class="sms-up-dialog" style="display:none" data-bind="visible: is_up_sms()">
+            <div class="close" data-bind="click:function(){$root.is_up_sms(false)}"></div>
+            <div class="please">请发送短信帮助我们确认你的身份</div>
+            <div><span class="verb">编辑短信：</span> <span class="target">1</span></div>
+            <div><span class="verb">发送至：</span> <span data-bind="text: up_sms_port_string" class="target">1069 0700 511</span> <span class="error-msg" data-bind="visible: up_port_updated()" style="display: none;">(接收号码已更新)</span></div>
+            <div class="price">除运营商收取的标准短信费用外，无额外费用。</div><button data-bind="click: submit" class="submit" id="has_up_sms">我已发送短信，下一步</button>
+            <div class="error-msg" data-bind="visible: up_error_msg().length"><span data-bind="text: up_error_msg">短信验证失败，请重新发送短信验证</span> <span data-bind="visible: up_error_count() &gt; 2" style="display: none;">或<a href="#" onclick="app.switchUpPort()">更换接收号码</a></span></div>
+        </div>
+        <div class="verify-dialog" id="verify-dialog" style="display:none" data-bind="visible: is_verify()">
+            <div class="close" data-bind="click:closeVerify(), visible: can_close_verify()"></div>
+            <div id="verify-content"></div>
+        </div>
+    </div>
+</div>
+<div class="sms-up-background" style="display:none" data-bind="visible: is_up_sms() || is_verify()"></div>
+<!--<script src="js/libs-233df6bcaf.js"></script>-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/public.js"></script>
+<script type="text/javascript">
+    window.lang = 2052;
+    $(document).ready(function () {
+        var pics = ["https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D",
+            "https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D",
+            "https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D",
+            "https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D",
+            "https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D"
+        ]
+        var leng = pics.length;
+        var cur = 0;
+        var a=setInterval(function () {
+            cur++;
+            var i=cur%leng;
+            turnImgs(leng,i,pics);
+        },6000);
+    })
+    function turnImgs(leng,cur,pics) {
+        $('.side.show').css('background-image','url('+pics[cur]+')')
+    }
+</script>
+<!--<script src="js/index-d56f15b748.js"></script>-->
+</body>
+
+</html>

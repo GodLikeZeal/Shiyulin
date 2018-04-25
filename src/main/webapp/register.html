@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<meta http-equiv="Content-Language" content="zh-cn"/>
+		<meta name="keywords"
+			  content="社交,kownyou,懂你网,文学作品,搞笑段子,技术博客,散文阅读,时评,笔记,优秀作品,兴趣爱好,交友"/>
+		<meta name="description" content="懂你网是一款集音乐，视频以及文字的社交网站，以博客会友，通过你的爱好，猜你喜欢"/>
+		<meta name="mobile-agent" content="format==[html5];url=//www.kownyou.com">
+		<meta name="applicable-device" content="pc">
+		<meta name="baidu-site-verification" content="kkpzPh12FZ"/>
+		<title>kownyou-注册</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="/css/modules/register.css">
+	</head>
+
+	<body data-bind="style:{overflow: is_up_sms() || is_verify() ? 'hidden' : ''}" style="display: block; opacity: 1;">
+		<a class="logo" href="javascript:void(0)" data-bind="click: home">kownyou</a>
+		<!--<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D);"></div>-->
+		<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D);"></div>-->
+		<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D);"></div>-->
+		<!--<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D);"></div>-->
+		<div class="side show" data-bind="style:{backgroundImage:currentSideUrl()}" style="background-image: url(https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D);"></div>
+		<div class="top">
+			<div class="item language-entry" data-bind="event:{mouseenter:openLang,mouseleave:closeLang}">
+				<div>简体中文&nbsp;</div>
+				<ul data-bind="visible: langOpened()" style="display: none;">
+					<li>
+						<a data-bind="click:function(){$root.switchLanguage(1028)}" href="javascript:void(0)">繁體中文</a>
+					</li>
+					<li>
+						<a data-bind="click:function(){$root.switchLanguage(1033)}" href="javascript:void(0)">English</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-wraper">
+			<div class="upgrade-tips" style="display:none">浏览器版本太低，为保障信息的安全和展现，建议
+				<a href="https://dldir1.qq.com/invc/tt/QQBrowser_Setup_qqzc.exe" target="_blank">升级浏览器</a>
+			</div>
+			<div class="main" data-bind="style:{height: is_up_sms() || is_verify() ? '100%' : ''}">
+				<div class="form" autocomplete="off" data-bind="visible: !error() &amp;&amp; !succ()">
+					<div data-bind="visible: isQQ()">
+						<div class="welcome">欢迎注册kownyou</div>
+						<div class="header">问君何不乘风起  扶摇直上九万里</div>
+					</div>
+					<form data-bind="submit: submit" autocomplete="off" onsubmit="return check()" method="post" action="/user/userRegist">
+						<div class="input-area">
+							<div class="input-flags">
+								<div class="input-ok" data-bind="visible: nicknameStatus() === 1" style="display: none;"></div>
+							</div><label class="input-placeholder" id="nickname-tips" for="nickname" data-bind="visible: nickname().length == 0">昵称</label>
+							<div class="input-outer"><input autocomplete="off" id="nickname" name="nickname" class="nickname" maxlength="24" data-bind="textInput: nickname, event: {blur:checkDirtyNickname,focus:onNicknameFocus}, css:{error: typeof nicknameStatus() == 'string'}" tabindex="3" type="text"></div>
+							<div class="error-tips-wrap slideup" data-bind="css:{slideup:nicknameTips().length === 0}">
+								<div class="error-tips" data-bind="text: nicknameTips, visible: nicknameTips().length" style="display: none;"></div>
+							</div>
+						</div>
+						<div class="input-area"><label class="input-placeholder" id="password-tips" for="password" data-bind="visible: password().length == 0">密码</label>
+							<div class="input-flags">
+								<div class="input-ok" data-bind="visible:passwordStatus() === 1" style="display: none;"></div>
+								<div href="javascript:void(0)" class="eye close" data-bind="event:{mousedown:function(){$root.show_password(true)},mouseup:function(){$root.show_password(false)},mouseleave:function(){$root.show_password(false)}},visible:password().length &gt; 0,css:{close:!show_password()}" title="长按显示密码" style="display: none;"></div>
+							</div>
+							<div class="input-outer">
+								<div class="password-raw" data-bind="text: password, visible: show_password()" style="display: none;"></div><input autocomplete="off" id="password" name="password" class="password" maxlength="16" data-bind="textInput: password, event: {blur:checkPassword,focus:onPasswordFocus}, css:{error:typeof passwordStatus() === 'string'}, hasFocus:passwordFocus" tabindex="4" type="password"></div>
+							<div class="password-tips-group slideup" data-bind="css:{slideup:!passwordFocus()}">
+								<div class="password-tips ok" data-bind="css:{ok:!passwordHasBlank()}">不能包括空格</div>
+								<div class="password-tips" data-bind="css:{ok:!passwordBadLength()}">长度为8-16个字符</div>
+								<div class="password-tips" data-bind="css:{ok:!passwordSimple()}">必须包含字母、数字</div>
+							</div>
+							<div class="error-tips-wrap slideup" data-bind="css:{slideup:passwordTips().length === 0}">
+								<div class="error-tips" data-bind="text: passwordTips, visible: passwordTips().length" style="display: none;"></div>
+							</div>
+						</div>
+						<div style="position:relative">
+							<div class="input-area phone-area">
+								<div class="input-flags">
+									<div class="input-ok" data-bind="visible: phoneStatus() === 1" style="display: none;"></div>
+								</div><label class="input-placeholder" id="phone-tips" for="phone" data-bind="visible: phone().length == 0">手机号码</label>
+								<div class="input-outer"><input autocomplete="off" id="phone" name="phone" class="phone" data-bind="value: phone, valueUpdate: 'afterkeydown', event:{blur:checkPhone,focus:onPhoneFocus}, validateValue: phone, css:{error:typeof phoneStatus() === 'string'}, hasFocus:phoneFocus" tabindex="5" type="text"></div>
+							</div>
+							<div class="input-area nation-area">
+								<div class="input-outer"><input autocomplete="off" readonly class="nation" data-bind="event:{focus:beginSelectCountry}, textInput: country" value="+86" type="text">
+									<div class="selector" data-bind="click:togglerCountry, clickBubble: false"></div>
+								</div>
+							</div>
+							<ul class="options country" data-bind="visible: isSelectingCountry(), foreach: country_list" style="display: none;">
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">中国 +86</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">中国香港特别行政区 +852</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">中国澳门特别行政区 +853</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">台湾 +886</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿尔巴尼亚 +355</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿尔及利亚 +213</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿富汗 +93</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿根廷 +54</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">爱尔兰 +353</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">埃及 +20</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">埃塞俄比亚 +251</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">爱沙尼亚 +372</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿拉伯联合酋长国 +971</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿鲁巴 +297</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿曼 +968</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">安道尔 +376</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">安哥拉 +244</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">安圭拉 +1264</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">安提瓜和巴布达 +1268</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">澳大利亚 +61</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">奥地利 +43</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">阿塞拜疆 +994</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴巴多斯 +1246</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴布亚新几内亚 +675</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴哈马 +1242</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">白俄罗斯 +375</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">百慕大 +1441</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴基斯坦 +92</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴拉圭 +595</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴林 +973</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴拿马 +507</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">保加利亚 +359</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">巴西 +55</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">北马里亚纳群岛 +1670</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">贝宁 +229</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">比利时 +32</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">冰岛 +354</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">博茨瓦纳 +267</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">波多黎各 +1</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">波兰 +48</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">玻利维亚 +591</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">伯利兹 +501</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">波斯尼亚和黑塞哥维那 +387</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">不丹 +975</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">布基纳法索 +226</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">布隆迪 +257</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">朝鲜 +850</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">赤道几内亚 +240</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">丹麦 +45</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">德国 +49</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">东帝汶 +670</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">多哥 +228</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">多米尼加 +1767</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">多米尼加共和国 +1809</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">厄瓜多尔 +593</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">厄立特里亚 +291</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">俄罗斯 +7</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">法国 +33</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">法罗群岛 +298</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">梵蒂冈 +39</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">法属波利尼西亚 +689</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">斐济 +679</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">菲律宾 +63</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">芬兰 +358</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">佛得角 +238</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">福克兰群岛 +500</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">冈比亚 +220</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">刚果（布） +242</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">刚果（金） +243</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">格陵兰 +299</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">格林纳达 +1473</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">格鲁吉亚 +995</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">哥伦比亚 +57</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">哥斯达黎加 +506</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">关岛 +1671</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">古巴 +53</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圭亚那 +592</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">海地 +509</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">韩国 +82</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">哈萨克斯坦 +7</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">黑山共和国 +382</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">荷兰 +31</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">荷属安的列斯群岛 +599</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">洪都拉斯 +504</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">加纳 +233</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">加拿大 +1</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">柬埔寨 +855</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">加蓬 +241</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">吉布提 +253</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">捷克共和国 +420</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">吉尔吉斯斯坦 +996</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">基里巴斯 +686</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">几内亚 +224</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">几内亚比绍 +245</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">开曼群岛 +1345</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">喀麦隆 +237</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">卡塔尔 +974</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">科科斯群岛 +61</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">克罗地亚 +385</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">科摩罗 +269</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">肯尼亚 +254</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">科特迪瓦 +225</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">科威特 +965</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">库克群岛 +682</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">莱索托 +266</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">老挝人民民主共和国 +856</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">拉脱维亚 +371</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">黎巴嫩 +961</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">利比里亚 +231</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">利比亚 +218</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">列支敦士登 +423</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">立陶宛 +370</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">罗马尼亚 +40</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">卢森堡 +352</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">卢旺达 +250</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马达加斯加 +261</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马尔代夫 +960</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马耳他 +356</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马来西亚 +60</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马拉维 +265</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马里 +223</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">曼岛 +44</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">毛里求斯 +230</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">毛里塔尼亚 +222</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马其顿 +389</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马绍尔群岛 +692</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">马约特 +262</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">美国 +1</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">美属萨摩亚 +1684</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">美属维京群岛 +1340</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">蒙古 +976</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">孟加拉国 +880</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">蒙塞拉特群岛 +1664</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">缅甸 +95</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">密克罗尼西亚联邦 +691</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">秘鲁 +51</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">摩尔多瓦 +373</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">摩洛哥 +212</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">摩纳哥 +377</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">莫桑比克 +258</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">墨西哥 +52</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">纳米比亚 +264</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">南非 +27</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">南极洲 +672</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">瑙鲁 +674</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">尼泊尔 +977</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">尼加拉瓜 +505</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">尼日尔 +227</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">尼日利亚 +234</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">纽埃 +683</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">挪威 +47</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">帕劳 +680</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">皮特凯恩群岛 +870</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">葡萄牙 +351</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">日本 +81</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">瑞典 +46</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">瑞士 +41</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">萨尔瓦多 +503</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塞尔维亚 +381</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塞拉利昂 +232</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塞内加尔 +221</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塞浦路斯 +357</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塞舌尔群岛 +248</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">萨摩亚 +685</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">沙特阿拉伯 +966</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣巴泰勒米 +590</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣诞岛 +61</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣多美和普林西比 +239</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣赫勒拿 +290</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣基茨和尼维斯 +1869</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣卢西亚 +1758</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣马丁 +1599</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣马力诺 +378</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣皮埃尔和密克隆 +508</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">圣文森特和格林纳丁斯 +1784</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">斯里兰卡 +94</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">斯洛伐克 +421</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">斯洛文尼亚 +386</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">斯威士兰 +268</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">苏丹 +249</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">所罗门群岛 +677</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">索马里 +252</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">泰国 +66</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">塔吉克斯坦 +992</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">汤加 +676</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">坦桑尼亚 +255</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">特克斯和凯科斯群岛 +1649</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">特立尼达和多巴哥 +1868</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">土耳其 +90</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">土库曼斯坦 +993</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">突尼斯 +216</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">托克劳 +690</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">图瓦卢 +688</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">瓦利斯和富图纳 +681</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">瓦努阿图 +678</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">危地马拉 +502</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">委内瑞拉 +58</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">文莱 +673</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">乌干达 +256</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">乌克兰 +380</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">乌拉圭 +598</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">乌兹别克斯坦 +998</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">西班牙 +34</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">希腊 +30</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">新加坡 +65</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">新喀里多尼亚 +687</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">新西兰 +64</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">匈牙利 +36</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">叙利亚 +963</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">牙买加 +1876</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">亚美尼亚 +374</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">也门 +967</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">意大利 +39</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">伊拉克 +964</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">伊朗 +98</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">印度 +91</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">印度尼西亚 +62</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">英国 +44</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">英属维京群岛 +1284</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">以色列 +972</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">约旦 +962</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">越南 +84</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">赞比亚 +260</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">乍得 +235</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">直布罗陀 +350</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">智利 +56</a>
+								</li>
+								<li data-bind="click:function(){$root.setCountry($data.c)}">
+									<a href="javascript:void(0)" data-bind="text:$data.n + ' +' + $data.c">中非共和国 +236</a>
+								</li>
+							</ul>
+						</div>
+						<div class="error-tips-wrap slideup" data-bind="css:{slideup: phoneTips().length === 0}">
+							<div class="error-tips" data-bind="text: phoneTips, visible: phoneTips().length" style="margin: 0px; display: none;"></div>
+						</div>
+						<div class="input-tips-wrap" data-bind="css:{slideup: phoneTips().length &gt; 0}">
+							<div class="input-tips" data-bind="">可通过该手机号找回密码</div>
+						</div>
+						<div data-bind="visible: phoneStatus() !== 0 || phoneFocus() || sendSMSHover()" style="display: none;">
+							<a href="javascript:void(0)" id="send-sms" class="send-sms" data-bind="text: send_sms, click: sendSMS, css: {disabled: send_sms() != str().send_sms || typeof phoneStatus() === 'string'}, hasHover: sendSMSHover" tabindex="6">发送短信验证码</a>
+							<div class="input-area code-area"><label class="input-placeholder" id="code-tips" for="code" data-bind="visible: code().length == 0">短信验证码</label>
+								<div class="input-outer"><input autocomplete="off" id="code" name="code" class="code" data-bind="textInput: code,event:{focus:clearCode}" tabindex="7" type="text"></div>
+							</div>
+							<div class="error-tips-wrap slideup" data-bind="css:{slideup:codeTips().length === 0}">
+								<div class="error-tips" data-bind="text: codeTips, visible: codeTips().length" style="display: none;"></div>
+							</div>
+						</div>
+						<div><input id="get_acc" class="submit" value="立即注册" tabindex="8" type="submit">
+							<div class="error-tips-wrap slideup" data-bind="css:{slideup:getNumTips().length === 0}">
+								<div class="error-tips" data-bind="text: getNumTips, visible: getNumTips().length" style="display: none;"></div>
+							</div>
+						</div>
+						<a class="tips" href="https://www.kownyou.com/login.html">已有账号，返回登录</a>
+					</form>
+				</div>
+				<div class="footer">Copyright <span>©</span> 2016-
+					<script>
+						document.write((new Date).getFullYear())
+					</script>Zeal All Rights Reserved</div>
+				<div class="sms-up-dialog" style="display:none" data-bind="visible: is_up_sms()">
+					<div class="close" data-bind="click:function(){$root.is_up_sms(false)}"></div>
+					<div class="please">请发送短信帮助我们确认你的身份</div>
+					<div><span class="verb">编辑短信：</span> <span class="target">1</span></div>
+					<div><span class="verb">发送至：</span> <span data-bind="text: up_sms_port_string" class="target">1069 0700 511</span> <span class="error-msg" data-bind="visible: up_port_updated()" style="display: none;">(接收号码已更新)</span></div>
+					<div class="price">除运营商收取的标准短信费用外，无额外费用。</div><button data-bind="click: submit" class="submit" id="has_up_sms">我已发送短信，下一步</button>
+					<div class="error-msg" data-bind="visible: up_error_msg().length"><span data-bind="text: up_error_msg">短信验证失败，请重新发送短信验证</span> <span data-bind="visible: up_error_count() &gt; 2" style="display: none;">或<a href="#" onclick="app.switchUpPort()">更换接收号码</a></span></div>
+				</div>
+				<div class="verify-dialog" id="verify-dialog" style="display:none" data-bind="visible: is_verify()">
+					<div class="close" data-bind="click:closeVerify(), visible: can_close_verify()"></div>
+					<div id="verify-content"></div>
+				</div>
+			</div>
+		</div>
+		<div class="sms-up-background" style="display:none" data-bind="visible: is_up_sms() || is_verify()"></div>
+		<!--<script src="js/libs-233df6bcaf.js"></script>-->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/public.js"></script>
+		<script type="text/javascript">
+			window.lang = 2052;
+			$(document).ready(function () {
+                var pics = ["https://pic.kownyou.com/1512391350719271630-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751353&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=vFnS6O2J9Kr%2FHV6bMXl%2BwKYcswo%3D",
+                    "https://pic.kownyou.com/1512391906268341629-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751907&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=MdovElBrhti2DalCKlIfarn7jnk%3D",
+                    "https://pic.kownyou.com/1512391947610340654-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751950&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=RMnxF3QXeMgZPcl5i2MJ3ZhQS58%3D",
+                    "https://pic.kownyou.com/1512391985037280935-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827751986&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=nnRePrKooUXs3bJ5zJpWJTCZ7bk%3D",
+                    "https://pic.kownyou.com/1512392019257270995-106_%E5%89%AF%E6%9C%AC.jpg?Expires=1827752022&OSSAccessKeyId=LTAIyT6XujK32CiQ&Signature=NpCfWmunVVLv4v9Mq6B8npaFNXs%3D"
+                ]
+                var leng = pics.length;
+                var cur = 0;
+                var a=setInterval(function () {
+                    cur++;
+                    var i=cur%leng;
+                    turnImgs(leng,i,pics);
+                },6000);
+			    $('#nickname').on('focus',function () {
+                    $(this).removeClass('error');
+                    $(this).parent().next().addClass('slideup');
+					$('#nickname-tips').hide();
+                })
+				$('#nickname').on('blur',function () {
+					//检查输入昵称是否合法
+					var nickName = $(this).val().trim();
+					if(nickName){
+					    $(this).parent().prev().prev().find('.input-ok').show();
+
+					}else {
+                        $('#nickname-tips').show();
+                        $(this).parent().prev().prev().find('.input-ok').hide();
+                        $(this).addClass('error');
+                        $(this).parent().next().removeClass('slideup');
+                        $(this).parent().next().find('.error-tips').text('昵称不能为空!');
+                        $(this).parent().next().find('.error-tips').show();
+					}
+                })
+				$('#password').on('focus',function () {
+                    $(this).removeClass('error');
+                    $(this).parent().next().removeClass('slideup');
+                    $(this).parent().next().next().addClass('slideup');
+					$('#password-tips').hide();
+                })
+				$('#password').on('blur',function () {
+					//检查输入密码是否合法
+					var password = $(this).val().trim();
+					if(password){
+                        $(this).parent().prev().find('.eye').show();
+                        if($('.password-tips-group .ok').length==3){
+                            $(this).parent().prev().find('.input-ok').show();
+                            $(this).parent().next().addClass('slideup');
+                        }else {
+                            $(this).parent().prev().find('.input-ok').hide();
+                            if(!$('.password-tips-group .password-tips').eq(0).hasClass('ok')){
+                                $(this).parent().prev().find('.input-ok').hide();
+                                $(this).addClass('error');
+                                $(this).parent().next().addClass('slideup');
+                                $(this).parent().next().next().removeClass('slideup');
+                                $(this).parent().next().next().find('.error-tips').text('密码不能包含空格!');
+                                $(this).parent().next().next().find('.error-tips').show();
+							}else if(!$('.password-tips-group .password-tips').eq(1).hasClass('ok')){
+                                $(this).parent().prev().find('.input-ok').hide();
+                                $(this).addClass('error');
+                                $(this).parent().next().addClass('slideup');
+                                $(this).parent().next().next().removeClass('slideup');
+                                $(this).parent().next().next().find('.error-tips').text('密码长度为8-16个字符!');
+                                $(this).parent().next().next().find('.error-tips').show();
+                            }else if(!$('.password-tips-group .password-tips').eq(2).hasClass('ok')){
+                                $(this).parent().prev().find('.input-ok').hide();
+                                $(this).addClass('error');
+                                $(this).parent().next().addClass('slideup');
+                                $(this).parent().next().next().removeClass('slideup');
+                                $(this).parent().next().next().find('.error-tips').text('密码必须包含字母、数字!');
+                                $(this).parent().next().next().find('.error-tips').show();
+                            }
+                        }
+					}else {
+                        $('#password-tips').show();
+                        $(this).parent().prev().find('.input-ok').hide();
+                        $(this).addClass('error');
+                        $(this).parent().next().addClass('slideup');
+                        $(this).parent().next().next().removeClass('slideup');
+                        $(this).parent().next().next().find('.error-tips').text('密码不能为空!');
+                        $(this).parent().next().next().find('.error-tips').show();
+					}
+                })
+                $('#password').bind(' input propertychange ',function(){
+                    var password = $(this).val();
+                    if(password){
+                        $(this).parent().prev().find('.eye').show();
+                        if(password.indexOf(' ')>=0){
+                            $('.password-tips-group .password-tips').eq(0).removeClass('ok');
+						}else {
+                            $('.password-tips-group .password-tips').eq(0).addClass('ok');
+						}
+						if(password.length>=8&&password.length<=16){
+                            $('.password-tips-group .password-tips').eq(1).addClass('ok');
+                        }else {
+                            $('.password-tips-group .password-tips').eq(1).removeClass('ok');
+                        }
+                        if(CheckPassWord(password)){
+                            $('.password-tips-group .password-tips').eq(2).addClass('ok');
+                        }else {
+                            $('.password-tips-group .password-tips').eq(2).removeClass('ok');
+                        }
+                    }
+                } )
+				$('.eye').on('mousedown',function () {
+					$(this).removeClass('close');
+                    $('#password').attr('type','text');
+                })
+                $('.eye').on('mouseup',function () {
+                    $(this).addClass('close');
+                    $('#password').attr('type','password');
+                })
+                $('.eye').on('mouseleave',function () {
+                    $(this).attr('title','长按显示密码');
+                })
+				$('#phone').on('focus',function () {
+					$('#phone-tips').hide();
+					$('.phone-area').parent().next().next().next().show();
+                    $(this).removeClass('error');
+                    $('.phone-area').parent().next().next().removeClass('slideup');
+                    $('.phone-area').parent().next().addClass('slideup');
+//                    $('.phone-area').parent().next().find('.error-tips').text('密码不能为空!');
+                    $('.phone-area').parent().next().find('.error-tips').hide();
+                })
+				$('#phone').on('blur',function () {
+					//检查输入昵称是否合法
+					var phone = $(this).val().trim();
+					if(phone){
+					    if(!checkPhone(phone)){
+                            $(this).addClass('error');
+                            $('.phone-area').parent().next().next().addClass('slideup');
+                            $('.phone-area').parent().next().removeClass('slideup');
+                            $('.phone-area').parent().next().find('.error-tips').text('请输入合法的手机号!');
+                            $('.phone-area').parent().next().find('.error-tips').show();
+						}
+					}else {
+                        $('#phone-tips').show();
+                        $(this).addClass('error');
+                        $('.phone-area').parent().next().next().addClass('slideup');
+                        $('.phone-area').parent().next().removeClass('slideup');
+                        $('.phone-area').parent().next().find('.error-tips').text('手机号不能为空!');
+                        $('.phone-area').parent().next().find('.error-tips').show();
+					}
+                })
+				$('#code').on('focus',function () {
+					$('#code-tips').hide();
+					$('.code-area').parent().next().next().next().show();
+                    $('#code').removeClass('error');
+                    $('#send-sms').next().next().addClass('slideup');
+                    $('#send-sms').next().next().find('.error-tips').hide();
+                })
+				$('#code').on('blur',function () {
+					//检查输入验证码是否合法
+					var code = $(this).val().trim();
+					if(code){
+
+					}else {
+                        $('#code-tips').show();
+					}
+                })
+				$('.nation').on('click',function () {
+
+                })
+				$('#send-sms').on('click',function () {
+                    if (!$('.error-tips-wrap').not('.slideup').length > 0) {
+                        $('#send-sms').attr('disabled', 'true');
+                        $("#send-sms").removeAttr('href');
+                        var time = parseInt(30);
+                        timer(time);
+                        var phone = $('#phone').val().trim();
+                        $.ajax({
+                            url:'currency/sendSMS',
+                            type:'post',
+                            async:true,
+                            data:{"phone":phone},
+                        })
+                    }
+                })
+
+            })
+
+            function CheckPassWord(password) {//必须为字母加数字且长度不小于8位
+                var str = password;
+                if (str == null || str.length <8) {
+                    return false;
+                }
+                var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+                if (!reg1.test(str)) {
+                    return false;
+                }
+                var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+                if (reg.test(str)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function checkPhone(phone){
+                if(!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
+                    return false;
+                }
+                return true;
+            }
+            /**
+			 * 计时器
+             */
+            function timer(intDiff){
+                var a=setInterval(function(){
+                    var day=0,
+                        hour=0,
+                        minute=0,
+                        second=0;//时间默认值       
+                    if(intDiff > 0){
+                        day = Math.floor(intDiff / (60 * 60 * 24));
+                        hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                        minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                        second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                    }
+                    if (minute <= 9) minute = '0' + minute;
+                    if (second <= 9) second = '0' + second;
+                    $('#send-sms').text(intDiff+' 秒后可再次发送');
+                    if(intDiff<=0){
+                        $('#send-sms').text('发送短信验证码');
+                        $('#send-sms').attr('href', 'javascript:void(0)');
+                        clearInterval(a);
+					}
+                    intDiff--;
+                }, 1000);
+            }
+            function check() {
+                var phone = $('#phone').val().trim();
+                var code = $('#code').val().trim();
+                $.ajax({
+					url:'currency/validateCode',
+					type:'post',
+					async:false,
+					data:{"phone":phone,"code":code},
+					success:function (data) {
+						if(data){
+						    if(data==0){
+						        $('#code').addClass('error');
+						        $('#send-sms').next().next().removeClass('slideup');
+                                $('#send-sms').next().next().find('.error-tips').text('验证码失效，请重新获取');
+                                $('#send-sms').next().next().find('.error-tips').show();
+							}else if(data<0){
+                                    $('#code').addClass('error');
+                                    $('#send-sms').next().next().removeClass('slideup');
+                                    $('#send-sms').next().next().find('.error-tips').text('验证码不正确');
+                                    $('#send-sms').next().next().find('.error-tips').show();
+							}
+						}
+                    },
+					error:function () {
+
+                    }
+				})
+
+                if($('.error-tips-wrap').not('.slideup').length>0){
+                    return false;
+				}else {
+                    return true;
+				}
+
+            }
+            function turnImgs(leng,cur,pics) {
+                $('.side.show').css('background-image','url('+pics[cur]+')')
+            }
+		</script>
+		<!--<script src="js/index-d56f15b748.js"></script>-->
+	</body>
+
+</html>

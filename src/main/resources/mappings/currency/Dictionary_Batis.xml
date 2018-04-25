@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeal.shiyulin.modules.currency.dao.DictionaryDao">
+	<!--<cache type="com.zeal.shiyulin.common.cache.RedisCache"/>-->
+	<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 只要在对应的mapper配置文件中加入<cache />标签即可-->
+	<!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+	 <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+	<!-- INSERT一条Article  -->
+	<!-- INSERT一条Dictionary  -->
+	<insert id="insert" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity" keyProperty="id">
+    	insert into zd_sex
+    	<trim prefix="(" suffix=")" suffixOverrides="," >
+				id,
+			enumvalue,
+			enumname,
+			parentid,
+			describe,
+			statu,
+			createtime,
+			del,
+
+       </trim>
+       <trim prefix="values (" suffix=")" suffixOverrides="," >
+    			#{id},
+			#{enumValue},
+			#{enumName},
+			#{parentId},
+			#{describe},
+			#{statu},
+			#{createTime},
+			#{del},
+
+    	</trim>
+	</insert>
+
+	<!-- Dictionary UPDATE -->
+	<update id="update" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity">
+    	update zd_sex
+    	 <trim prefix="set" suffixOverrides=",">
+    			<if test="enumValueChanged==true">
+			  enumvalue=#{enumValue},
+			</if>
+			<if test="enumNameChanged==true">
+			  enumname=#{enumName},
+			</if>
+			<if test="parentIdChanged==true">
+			  parentid=#{parentId},
+			</if>
+			<if test="describeChanged==true">
+			  describe=#{describe},
+			</if>
+			<if test="statuChanged==true">
+			  statu=#{statu},
+			</if>
+			<if test="createTimeChanged==true">
+			  createtime=#{createTime},
+			</if>
+			<if test="delChanged==true">
+			  del=#{del},
+			</if>
+
+            </trim>
+    	where id = #{id}
+
+    </update>
+
+	<!-- DELETE一条Dictionary  -->
+	<delete id="delete" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity">
+		delete from zd_sex t
+		<include refid="whereCause"></include>
+	</delete>
+    <delete id="deleteById" parameterType="java.lang.String">
+		delete from zd_sex
+		where id = #{id}
+
+	</delete>
+
+
+	<sql id="whereCause">
+		<where>
+            <choose>
+                <when test="islike==1">
+                  <if test="id != null">
+                     and t.id LIKE  CONCAT('%',#{id},'%')
+                  </if>
+                  <if test="enumValue != null">
+                     and t.enumvalue LIKE  CONCAT('%',#{enumValue},'%')
+                  </if>
+                  <if test="enumName != null">
+                     and t.enumname LIKE  CONCAT('%',#{enumName},'%')
+                  </if>
+                  <if test="parentId != null">
+                     and t.parentid LIKE  CONCAT('%',#{parentId},'%')
+                  </if>
+                  <if test="describe != null">
+                     and t.describe LIKE  CONCAT('%',#{describe},'%')
+                  </if>
+                  <if test="statu != null">
+                     and t.statu LIKE  CONCAT('%',#{statu},'%')
+                  </if>
+                  <if test="createTime != null">
+                     and t.createtime LIKE  CONCAT('%',#{createTime},'%')
+                  </if>
+                  <if test="del != null">
+                     and t.del LIKE  CONCAT('%',#{del},'%')
+                  </if>
+                </when>
+                <otherwise>
+                  <if test="id != null">
+                      and t.id = #{id}
+                  </if>
+                  <if test="enumValue != null">
+                      and t.enumvalue = #{enumValue}
+                  </if>
+                  <if test="enumName != null">
+                      and t.enumname = #{enumName}
+                  </if>
+                  <if test="parentId != null">
+                      and t.parentid = #{parentId}
+                  </if>
+                  <if test="describe != null">
+                      and t.describe = #{describe}
+                  </if>
+                  <if test="statu != null">
+                      and t.statu = #{statu}
+                  </if>
+                  <if test="createTime != null">
+                      and t.createtime = #{createTime}
+                  </if>
+                  <if test="del != null">
+                      and t.del = #{del}
+                  </if>
+                </otherwise>
+            </choose>
+
+		</where>
+	</sql>
+
+    <!-- 根据ID来查找一条Dictionary -->
+    <select id="findById" parameterType="java.lang.String"
+			resultType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity">
+		select * from zd_sex
+		where id = #{id}
+
+	</select>
+
+    <!-- 根据Class来查找Dictionary -->
+	<select id="findByClass" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity"
+			resultType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity">
+		select * from zd_sex t
+		<include refid="whereCause"></include>
+	</select>
+
+<!-- 根据Class来分页查询查找Dictionary -->
+	<select id="findByClassPaginate" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity"
+			resultType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity">
+		select * from zd_sex t
+		<include refid="whereCause"></include>
+		order by ${order} ${sort} limit  #{start},#{size}
+	</select>
+
+<!-- 根据Class来分页查询查找Dictionary的分页总数量 -->
+	<select id="findByClassPaginateCount" parameterType="com.zeal.shiyulin.modules.currency.entity.DictionaryEntity"
+			resultType="long">
+		select count(1) from zd_sex t
+		<include refid="whereCause"></include>
+	</select>
+
+
+
+</mapper>
